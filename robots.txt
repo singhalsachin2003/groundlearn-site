@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://groundlearn.com/sitemap.xml
