@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Duration and convexity: how good is the approximation? | Groundlearn</title>
+<meta name="description" content="A ten-year bond repriced at four yield shocks: exact change versus the duration estimate and the duration-plus-convexity estimate.">
+<link rel="canonical" href="https://groundlearn.com/learn/duration-and-convexity/">
+<meta name="theme-color" content="#16201B">
+<link rel="icon" type="image/svg+xml" href="/mark.svg">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Groundlearn">
+<meta property="og:title" content="Duration and convexity: how good is the approximation? | Groundlearn">
+<meta property="og:description" content="A ten-year bond repriced at four yield shocks: exact change versus the duration estimate and the duration-plus-convexity estimate.">
+<meta property="og:url" content="https://groundlearn.com/learn/duration-and-convexity/">
+<meta property="og:image" content="https://groundlearn.com/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/serif-600.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Duration and convexity: how good is the approximation?","description":"A ten-year bond repriced at four yield shocks: exact change versus the duration estimate and the duration-plus-convexity estimate.","datePublished":"2026-10-19","dateModified":"2026-10-19","mainEntityOfPage":"https://groundlearn.com/learn/duration-and-convexity/","author":{"@type":"Organization","name":"Groundlearn","url":"https://groundlearn.com/"},"publisher":{"@type":"Organization","name":"Groundlearn","url":"https://groundlearn.com/"},"image":"https://groundlearn.com/og.jpg"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Groundlearn","item":"https://groundlearn.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://groundlearn.com/learn/"},{"@type":"ListItem","position":3,"name":"Duration and convexity","item":"https://groundlearn.com/learn/duration-and-convexity/"}]}]}
+</script>
+<link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/learn.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Groundlearn home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="21" width="26" height="7" rx="2" fill="currentColor"/><rect x="6.5" y="12.5" width="19" height="7" rx="2" fill="currentColor" opacity=".72"/><rect x="10" y="4" width="12" height="7" rx="2" fill="#B04A28"/></svg>
+      Groundlearn
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="/cornerstone/" class="keep">Cornerstone</a>
+      <a href="/otc-learn/" class="keep">OTC Learn</a>
+      <a href="/learn/">Guides</a>
+      <a href="/#about">About</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="page"><div class="wrap">
+<p class="crumbs"><a href="/">Groundlearn</a> / <a href="/learn/">Guides</a> / Duration and convexity</p>
+<p class="meta">By Groundlearn · Updated 19 October 2026</p>
+<h1>Duration and convexity: how good is the approximation?</h1>
+<p class="lede">A ten-year bond repriced at four yield shocks, comparing the exact price change with the duration estimate and the duration-plus-convexity estimate.</p>
+</div></div>
+<div class="wrap" style="max-width:860px">
+
+<section class="blk">
+<h2>The two formulas</h2>
+<p>Duration is a first-order estimate of how a bond's price changes when its yield changes. Convexity adds the second-order term, which corrects for the fact that the price-yield curve is bent, not straight.</p>
+<div class="eq">ΔP / P ≈ − D<sub>mod</sub> × Δy</div>
+<div class="eq">ΔP / P ≈ − D<sub>mod</sub> × Δy + ½ × C × (Δy)²</div>
+<p>Modified duration is Macaulay duration divided by (1 + y), where y is the yield per period. Convexity is the second derivative of price with respect to yield, divided by price. Both are measured with Δy as a decimal, so 100 bp is 0.01.</p>
+</section>
+
+<section class="blk">
+<h2>Worked example</h2>
+<p>A 10-year bond pays a 5% annual coupon and yields 5%, so it prices at par, 100.00. Its measures are:</p>
+<ul class="tick">
+<li>Macaulay duration: 8.1078 years</li>
+<li>Modified duration: 7.7217</li>
+<li>Convexity: 75.00</li>
+</ul>
+<p>For a +100 bp shock the duration estimate is −7.7217 × 0.01 × 100 = −7.72. The convexity term adds ½ × 75.00 × 0.01² × 100 = +0.37, giving −7.35. Repricing the bond at 6% gives the exact figure. The table compares all four shocks (price change per 100 of par):</p>
+<div class="tblwrap"><table class="tbl">
+<thead><tr><th>Yield shock</th><th>Exact</th><th>Duration only</th><th>Duration + convexity</th></tr></thead>
+<tbody><tr><td>+100 bp</td><td>−7.36</td><td>−7.72</td><td>−7.35</td></tr><tr><td>−100 bp</td><td>+8.11</td><td>+7.72</td><td>+8.10</td></tr><tr><td>+200 bp</td><td>−14.05</td><td>−15.44</td><td>−13.94</td></tr><tr><td>−200 bp</td><td>+17.06</td><td>+15.44</td><td>+16.94</td></tr></tbody></table></div>
+</section>
+
+<section class="blk">
+<h2>What the table shows</h2>
+<ul class="tick">
+<li><strong>Duration alone is symmetric.</strong> It gives the same size of gain for a fall in yields as the loss for a rise. The real price moves are not symmetric.</li>
+<li><strong>Duration overstates losses and understates gains.</strong> For a +200 bp shock it says −15.44 while the true change is −14.05. For −200 bp it says +15.44 while the true change is +17.06.</li>
+<li><strong>Convexity closes most of the gap.</strong> Adding it moves both estimates close to the exact figures, and the remaining error grows with the size of the shock (third-order terms).</li>
+<li><strong>Positive convexity is good for the holder.</strong> For the same duration, a more convex bond loses less when yields rise and gains more when they fall. That is why investors pay for it.</li>
+</ul>
+</section>
+
+<section class="blk">
+<h2>Common exam traps</h2>
+<ul class="tick">
+<li>Mixing percent and decimal: 100 bp is 0.01 in the formula, so (Δy)² is 0.0001, not 1.</li>
+<li>Using Macaulay duration where the question gives modified duration, or the reverse. Modified is the one that links price to yield directly.</li>
+<li>Forgetting the ½ in front of the convexity term.</li>
+<li>Assuming callable bonds or mortgage-backed securities have positive convexity. Embedded options can make convexity negative, so the duration-plus-convexity estimate is built differently (effective duration and effective convexity, from repricing in a model).</li>
+<li>Treating duration as a time measure only. It is both a weighted-average time to cash flows and a price sensitivity.</li>
+</ul>
+</section>
+<p class="note">Educational content only. This is not financial, investment, legal or regulatory advice. Figures are illustrations, not market data. Check the official source for your own exam or regulator before relying on any rule described here.</p>
+<div class="cta">
+<h2>Practise it in Cornerstone</h2>
+<p>Snapshot cards and five-question sessions for CFA® and FRM® candidates, free on Android and offline. Cornerstone is an independent study aid.</p>
+<a class="btn btn-solid" href="/cornerstone/">About Cornerstone</a>
+</div>
+<section class="blk"><h2>More guides</h2><ul class="rel"><li><a href="/learn/var-square-root-of-time/">Value at Risk: the square-root-of-time rule</a><span>Scale a one-day VaR to ten days with a worked example, and see where the rule breaks.</span></li><li><a href="/learn/initial-margin-umr/">Initial margin and the uncleared margin rules, explained</a><span>Who has to post it, how it is sized, and why the phase-in dates matter.</span></li></ul></section>
+
+</div>
+</main>
+<footer>
+  <div class="wrap">
+    <ul class="foot">
+      <li><a href="/">Groundlearn</a></li>
+      <li><a href="/learn/">Guides</a></li>
+      <li><a href="/cornerstone/">Cornerstone</a></li>
+      <li><a href="/otc-learn/">OTC Learn</a></li>
+      <li><a href="https://singhalsachin2003.github.io/CornerStone/PRIVACY.html">Cornerstone privacy</a></li>
+      <li><a href="https://singhalsachin2003.github.io/OTC_Learn/privacy/">OTC Learn privacy</a></li>
+      <li><a href="mailto:contactgroundlearn@gmail.com">Contact</a></li>
+    </ul>
+    <p>Educational content only. Nothing here is financial advice, an offer to trade, or a recommendation to buy or sell any instrument.</p>
+    <p>CFA® and FRM® are registered trademarks of their respective owners. Groundlearn is not affiliated with CFA Institute or GARP.</p>
+  </div>
+</footer>
+</body>
+</html>
