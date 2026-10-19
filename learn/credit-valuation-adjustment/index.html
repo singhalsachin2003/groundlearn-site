@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Credit valuation adjustment (CVA): a worked example | Groundlearn</title>
+<meta name="description" content="What CVA is, how to compute it from an exposure profile, default probabilities and recovery, and how collateral and credit quality change the number.">
+<link rel="canonical" href="https://groundlearn.com/learn/credit-valuation-adjustment/">
+<meta name="theme-color" content="#16201B">
+<link rel="icon" type="image/svg+xml" href="/mark.svg">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Groundlearn">
+<meta property="og:title" content="Credit valuation adjustment (CVA): a worked example | Groundlearn">
+<meta property="og:description" content="What CVA is, how to compute it from an exposure profile, default probabilities and recovery, and how collateral and credit quality change the number.">
+<meta property="og:url" content="https://groundlearn.com/learn/credit-valuation-adjustment/">
+<meta property="og:image" content="https://groundlearn.com/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/serif-600.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Credit valuation adjustment (CVA): a worked example","description":"What CVA is, how to compute it from an exposure profile, default probabilities and recovery, and how collateral and credit quality change the number.","datePublished":"2026-10-19","dateModified":"2026-10-19","mainEntityOfPage":"https://groundlearn.com/learn/credit-valuation-adjustment/","author":{"@type":"Organization","name":"Groundlearn","url":"https://groundlearn.com/"},"publisher":{"@type":"Organization","name":"Groundlearn","url":"https://groundlearn.com/"},"image":"https://groundlearn.com/og.jpg"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Groundlearn","item":"https://groundlearn.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://groundlearn.com/learn/"},{"@type":"ListItem","position":3,"name":"Credit valuation adjustment","item":"https://groundlearn.com/learn/credit-valuation-adjustment/"}]}]}
+</script>
+<link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/learn.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Groundlearn home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="21" width="26" height="7" rx="2" fill="currentColor"/><rect x="6.5" y="12.5" width="19" height="7" rx="2" fill="currentColor" opacity=".72"/><rect x="10" y="4" width="12" height="7" rx="2" fill="#B04A28"/></svg>
+      Groundlearn
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="/cornerstone/" class="keep">Cornerstone</a>
+      <a href="/otc-learn/" class="keep">OTC Learn</a>
+      <a href="/learn/">Guides</a>
+      <a href="/#about">About</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="page"><div class="wrap">
+<p class="crumbs"><a href="/">Groundlearn</a> / <a href="/learn/">Guides</a> / Credit valuation adjustment</p>
+<p class="meta">By Groundlearn · Updated 19 October 2026</p>
+<h1>Credit valuation adjustment (CVA): a worked example</h1>
+<p class="lede">What counterparty credit risk costs on a derivative, computed step by step from exposure, discounting, default probability and recovery.</p>
+</div></div>
+<div class="wrap" style="max-width:860px">
+
+<section class="blk">
+<h2>What CVA measures</h2>
+<p>When you trade an over-the-counter derivative, the other side might default while the trade is worth something to you. Credit valuation adjustment (CVA) is the market price of that risk: the expected loss from counterparty default, deducted from the risk-free value of the portfolio.</p>
+<p>It is a loss on the exposure you would have at the moment of default, so two things drive it: how much you are owed (exposure) and how likely and how severe a default is (credit).</p>
+<div class="eq">CVA ≈ LGD × Σ EE(t<sub>i</sub>) × DF(t<sub>i</sub>) × [Q(t<sub>i−1</sub>) − Q(t<sub>i</sub>)]</div>
+<ul class="tick">
+<li><strong>LGD</strong> is loss given default, one minus the recovery rate.</li>
+<li><strong>EE(t)</strong> is the expected exposure at time t: the average of the positive part of the portfolio value, since you only lose when the counterparty owes you.</li>
+<li><strong>DF(t)</strong> is the discount factor to time t.</li>
+<li><strong>Q(t)</strong> is the probability the counterparty has survived to time t, so Q(t<sub>i−1</sub>) − Q(t<sub>i</sub>) is the probability of defaulting in period i.</li>
+</ul>
+</section>
+
+<section class="blk">
+<h2>Worked example</h2>
+<p>Take a three-year swap with an illustrative expected exposure profile: $150,000 at one year, $180,000 at two, and $90,000 at three. The profile rises at first, then falls as the swap gets closer to maturity. Use the same discount factors as in our <a href="/learn/interest-rate-swap-valuation/">swap valuation guide</a>, a recovery rate of 40% (so LGD is 60%), and a constant default intensity of 2% a year, which gives survival Q(t) = e<sup>−0.02t</sup>.</p>
+<div class="tblwrap"><table class="tbl">
+<thead><tr><th>Year</th><th>EE ($)</th><th>DF</th><th>Default probability in year</th><th>CVA contribution ($)</th></tr></thead>
+<tbody><tr><td>1</td><td>150,000</td><td>0.9662</td><td>1.980%</td><td>1,722</td></tr><tr><td>2</td><td>180,000</td><td>0.9281</td><td>1.941%</td><td>1,946</td></tr><tr><td>3</td><td>90,000</td><td>0.8890</td><td>1.902%</td><td>913</td></tr></tbody></table></div>
+<p>Each contribution is LGD × EE × DF × default probability. The three add up to a CVA of about $4,581, or roughly 4.6 basis points of the $10m notional. A 2% intensity with 60% LGD corresponds to a credit spread of about 120 basis points a year (intensity × LGD).</p>
+</section>
+
+<section class="blk">
+<h2>What changes the number</h2>
+<ul class="tick">
+<li><strong>Collateral.</strong> If variation margin and initial margin cut the exposure by 80%, CVA falls by the same fraction here, to about $916. This is the economic reason margin rules exist. See our <a href="/learn/initial-margin-umr/">initial margin guide</a>.</li>
+<li><strong>Credit quality.</strong> Doubling the default intensity to 4% takes CVA to about $8,923, slightly less than double because survival probabilities also fall.</li>
+<li><strong>Recovery.</strong> A lower recovery rate raises LGD and CVA in proportion.</li>
+<li><strong>Maturity and netting.</strong> Longer trades have more time to go wrong, and netting agreements reduce exposure by letting gains and losses offset.</li>
+<li><strong>Wrong-way risk.</strong> The formula above assumes exposure and default are independent. If the counterparty is more likely to default exactly when it owes you the most, such as a bank selling protection on its own sovereign, the true CVA is higher.</li>
+</ul>
+</section>
+
+<section class="blk">
+<h2>CVA, DVA and the other adjustments</h2>
+<p>CVA looks at the counterparty's default. Debit valuation adjustment (DVA) is the mirror image, reflecting the chance that you default while owing them money, and it reduces the liability's value. Funding valuation adjustment (FVA) captures the cost of funding uncollateralised positions. Together with margin valuation adjustment and capital costs, these are often called XVA.</p>
+<p>Fair value accounting under IFRS 13 and US GAAP requires credit risk to be reflected in derivative valuations, and the Basel framework has a separate capital charge for the volatility of CVA. Practices differ by institution, so treat this guide as the concept, not a statement of any firm's methodology.</p>
+</section>
+
+<section class="blk">
+<h2>Common exam traps</h2>
+<ul class="tick">
+<li>Using the full notional or the full mark-to-market instead of the positive expected exposure.</li>
+<li>Forgetting LGD, or applying it to the wrong quantity.</li>
+<li>Confusing the probability of default in a period with the cumulative probability to that date.</li>
+<li>Assuming CVA is always a cost. DVA, the mirror effect, works in the opposite direction on the party's own credit.</li>
+<li>Treating CVA as a capital charge. CVA is a valuation adjustment; regulatory capital for CVA risk is a separate calculation.</li>
+</ul>
+</section>
+<p class="note">Educational content only. This is not financial, investment, legal or regulatory advice. Figures are illustrations, not market data. Check the official source for your own exam or regulator before relying on any rule described here.</p>
+<div class="cta">
+<h2>See it product by product in OTC Learn</h2>
+<p>OTC derivatives explained one product at a time, with collateral and clearing covered alongside swaps, forwards, credit and commodity. Free on Android.</p>
+<a class="btn btn-solid" href="/otc-learn/">About OTC Learn</a>
+</div>
+<section class="blk"><h2>Related guides</h2><ul class="rel"><li><a href="/learn/interest-rate-swap-valuation/">Valuing an interest rate swap: a three-year worked example</a><span>Discount factors, the par swap rate and the value of a 4% swap, step by step.</span></li><li><a href="/learn/initial-margin-umr/">Initial margin and the uncleared margin rules, explained</a><span>Who has to post it, how it is sized, and why the phase-in dates matter.</span></li><li><a href="/learn/expected-shortfall-vs-var/">Expected shortfall versus VaR: what changes in the tail</a><span>Why regulators moved from 99% VaR to 97.5% expected shortfall, with normal and fat-tailed numbers.</span></li></ul></section>
+
+</div>
+</main>
+<footer>
+  <div class="wrap">
+    <ul class="foot">
+      <li><a href="/">Groundlearn</a></li>
+      <li><a href="/learn/">Guides</a></li>
+      <li><a href="/cornerstone/">Cornerstone</a></li>
+      <li><a href="/otc-learn/">OTC Learn</a></li>
+      <li><a href="https://singhalsachin2003.github.io/CornerStone/PRIVACY.html">Cornerstone privacy</a></li>
+      <li><a href="https://singhalsachin2003.github.io/OTC_Learn/privacy/">OTC Learn privacy</a></li>
+      <li><a href="mailto:contactgroundlearn@gmail.com">Contact</a></li>
+    </ul>
+    <p>Educational content only. Nothing here is financial advice, an offer to trade, or a recommendation to buy or sell any instrument.</p>
+    <p>CFA® and FRM® are registered trademarks of their respective owners. Groundlearn is not affiliated with CFA Institute or GARP.</p>
+  </div>
+</footer>
+</body>
+</html>
