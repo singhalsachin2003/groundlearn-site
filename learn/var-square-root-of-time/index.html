@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Value at Risk: the square-root-of-time rule, with a worked example | Groundlearn</title>
+<meta name="description" content="Scale a one-day Value at Risk to ten days with the square-root-of-time rule. Worked example, the assumptions behind it, and where it breaks.">
+<link rel="canonical" href="https://groundlearn.com/learn/var-square-root-of-time/">
+<meta name="theme-color" content="#16201B">
+<link rel="icon" type="image/svg+xml" href="/mark.svg">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Groundlearn">
+<meta property="og:title" content="Value at Risk: the square-root-of-time rule, with a worked example | Groundlearn">
+<meta property="og:description" content="Scale a one-day Value at Risk to ten days with the square-root-of-time rule. Worked example, the assumptions behind it, and where it breaks.">
+<meta property="og:url" content="https://groundlearn.com/learn/var-square-root-of-time/">
+<meta property="og:image" content="https://groundlearn.com/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/serif-600.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Value at Risk: the square-root-of-time rule","description":"Scale a one-day Value at Risk to ten days with the square-root-of-time rule. Worked example, the assumptions behind it, and where it breaks.","datePublished":"2026-10-19","dateModified":"2026-10-19","mainEntityOfPage":"https://groundlearn.com/learn/var-square-root-of-time/","author":{"@type":"Organization","name":"Groundlearn","url":"https://groundlearn.com/"},"publisher":{"@type":"Organization","name":"Groundlearn","url":"https://groundlearn.com/"},"image":"https://groundlearn.com/og.jpg"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Groundlearn","item":"https://groundlearn.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://groundlearn.com/learn/"},{"@type":"ListItem","position":3,"name":"Square-root-of-time rule","item":"https://groundlearn.com/learn/var-square-root-of-time/"}]}]}
+</script>
+<link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/learn.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Groundlearn home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="21" width="26" height="7" rx="2" fill="currentColor"/><rect x="6.5" y="12.5" width="19" height="7" rx="2" fill="currentColor" opacity=".72"/><rect x="10" y="4" width="12" height="7" rx="2" fill="#B04A28"/></svg>
+      Groundlearn
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="/cornerstone/" class="keep">Cornerstone</a>
+      <a href="/otc-learn/" class="keep">OTC Learn</a>
+      <a href="/learn/">Guides</a>
+      <a href="/#about">About</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="page"><div class="wrap">
+<p class="crumbs"><a href="/">Groundlearn</a> / <a href="/learn/">Guides</a> / Square-root-of-time rule</p>
+<p class="meta">By Groundlearn · Updated 19 October 2026</p>
+<h1>Value at Risk: the square-root-of-time rule</h1>
+<p class="lede">How to turn a one-day VaR into a ten-day VaR, with a worked example, the assumptions underneath and the ways it fails.</p>
+</div></div>
+<div class="wrap" style="max-width:860px">
+
+<section class="blk">
+<h2>The rule in one line</h2>
+<p>If daily returns are independent and identically distributed with a mean of about zero, the standard deviation over T days is the one-day standard deviation times √T. Value at Risk (VaR) is a quantile of the return distribution, so under the same assumptions it scales the same way.</p>
+<div class="eq">VaR(T days) = VaR(1 day) × √T</div>
+<p>This is why a risk report can quote a one-day VaR and a ten-day VaR from a single calculation, and why regulators historically asked for a 10-day horizon without asking banks to estimate ten-day moves directly.</p>
+</section>
+
+<section class="blk">
+<h2>Worked example</h2>
+<p>Take a portfolio worth $10,000,000 with a daily return standard deviation of 1.2%. Use a 99% one-tailed confidence level, where the normal z-score is 2.3263.</p>
+<div class="eq">1-day VaR = 10,000,000 × 0.012 × 2.3263 ≈ $279,162</div>
+<p>Now scale it:</p>
+<div class="tblwrap"><table class="tbl">
+<thead><tr><th>Horizon</th><th>Multiplier</th><th>VaR (99%)</th></tr></thead>
+<tbody>
+<tr><td>1 day</td><td>1.000</td><td>$279,162</td></tr>
+<tr><td>5 days</td><td>√5 = 2.236</td><td>$624,225</td></tr>
+<tr><td>10 days</td><td>√10 = 3.162</td><td>$882,787</td></tr>
+<tr><td>20 days</td><td>√20 = 4.472</td><td>$1,248,449</td></tr>
+</tbody></table></div>
+<p>Notice that ten days of risk is about 3.2 times one day, not ten times. Risk grows with the square root of time because good and bad days partly offset each other when they are independent.</p>
+<h3>Changing the confidence level</h3>
+<p>The z-score is the only thing that changes. At 95% it is 1.645, at 99% it is 2.326, and at 99.9% it is 3.090. The same $10m portfolio has a one-day 95% VaR of about $197,382.</p>
+</section>
+
+<section class="blk">
+<h2>What the rule assumes</h2>
+<ul class="tick">
+<li><strong>Independent returns.</strong> Today's move says nothing about tomorrow's. If returns trend or mean-revert, the true multi-day risk is higher or lower than √T suggests.</li>
+<li><strong>Constant volatility.</strong> Real volatility clusters: calm periods and stressed periods. Scaling a calm-period number understates risk going into a crisis.</li>
+<li><strong>Zero mean.</strong> Over a few days the drift is negligible, but over longer horizons it is not.</li>
+<li><strong>Normal (or at least stable) tails.</strong> Scaling the quantile of a fat-tailed distribution by √T is only an approximation.</li>
+<li><strong>A fixed portfolio.</strong> The rule holds the positions constant. Options, whose exposure changes as the market moves, do not scale cleanly, and neither does a portfolio you would really rebalance or be unable to exit.</li>
+</ul>
+</section>
+
+<section class="blk">
+<h2>Where it shows up in exams and in practice</h2>
+<p>Market-risk capital under the Basel framework has long been built on a 10-day, 99% VaR, which is why the √10 scaling is so familiar. The Fundamental Review of the Trading Book moves the headline measure to expected shortfall at 97.5% and replaces a single 10-day horizon with liquidity horizons that differ by risk factor, partly because of the weaknesses above.</p>
+<p>In an exam, expect the rule as a calculation (scale this one-day VaR) and as a conceptual question (which assumption fails here, and in which direction does the error go). A common trap is applying √T to a mean as well as to the volatility; the mean scales with T, not √T.</p>
+</section>
+<p class="note">Educational content only. This is not financial, investment, legal or regulatory advice. Figures are illustrations, not market data. Check the official source for your own exam or regulator before relying on any rule described here.</p>
+<div class="cta">
+<h2>Practise it in Cornerstone</h2>
+<p>Snapshot cards and five-question sessions for CFA® and FRM® candidates, free on Android and offline. Cornerstone is an independent study aid.</p>
+<a class="btn btn-solid" href="/cornerstone/">About Cornerstone</a>
+</div>
+<section class="blk"><h2>More guides</h2><ul class="rel"><li><a href="/learn/duration-and-convexity/">Duration and convexity: how good is the approximation?</a><span>A ten-year bond repriced at four yield shocks, exactly and with the duration and convexity estimates.</span></li><li><a href="/learn/initial-margin-umr/">Initial margin and the uncleared margin rules, explained</a><span>Who has to post it, how it is sized, and why the phase-in dates matter.</span></li></ul></section>
+
+</div>
+</main>
+<footer>
+  <div class="wrap">
+    <ul class="foot">
+      <li><a href="/">Groundlearn</a></li>
+      <li><a href="/learn/">Guides</a></li>
+      <li><a href="/cornerstone/">Cornerstone</a></li>
+      <li><a href="/otc-learn/">OTC Learn</a></li>
+      <li><a href="https://singhalsachin2003.github.io/CornerStone/PRIVACY.html">Cornerstone privacy</a></li>
+      <li><a href="https://singhalsachin2003.github.io/OTC_Learn/privacy/">OTC Learn privacy</a></li>
+      <li><a href="mailto:contactgroundlearn@gmail.com">Contact</a></li>
+    </ul>
+    <p>Educational content only. Nothing here is financial advice, an offer to trade, or a recommendation to buy or sell any instrument.</p>
+    <p>CFA® and FRM® are registered trademarks of their respective owners. Groundlearn is not affiliated with CFA Institute or GARP.</p>
+  </div>
+</footer>
+</body>
+</html>
