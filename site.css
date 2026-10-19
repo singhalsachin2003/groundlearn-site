@@ -5,7 +5,7 @@
 @font-face{font-family:"Archivo";src:url(/sans-700.woff2) format("woff2");font-weight:700;font-display:swap}
 :root{
   color-scheme:light dark;
-  --bg:#F3EFE6; --surface:#FFFFFF; --ink:#16201B; --body:#35403A; --muted:#66706A; --line:#DDD7C8;
+  --bg:#F3EFE6; --surface:#FFFFFF; --ink:#16201B; --body:#35403A; --muted:#5B655F; --line:#DDD7C8;
   --clay:#B04A28; --clay-ink:#8E3818; --clay-soft:#F2DFD5; --night:#16201B; --on-night:#F3EFE6; --on-night-sub:#A9B5AD;
   --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
   --sans:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
