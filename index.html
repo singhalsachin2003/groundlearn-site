@@ -36,7 +36,7 @@
 @font-face{font-family:"Archivo";src:url(sans-600.woff2) format("woff2");font-weight:500 600;font-display:swap}
 @font-face{font-family:"Archivo";src:url(sans-700.woff2) format("woff2");font-weight:700;font-display:swap}
 :root{
-  color-scheme:light dark;
+  color-scheme:only light;
   --bg:#F3EFE6; --surface:#FFFFFF; --ink:#16201B; --body:#35403A; --muted:#5B655F; --line:#DDD7C8;
   --clay:#B04A28; --clay-ink:#8E3818; --clay-soft:#F2DFD5; --night:#16201B; --on-night:#F3EFE6; --on-night-sub:#A9B5AD;
   --cs:#131B2E; --cs-gold:#DDB868; --otc:#181611; --otc-blue:#7FB3E8;
@@ -44,7 +44,7 @@
   --sans:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 }
 @media (prefers-color-scheme:dark){
-  :root{--bg:#101612; --surface:#18211B; --ink:#F3EFE6; --body:#C7CEC8; --muted:#97A39B; --line:#2F3D34;
+  :root{color-scheme:dark; --bg:#101612; --surface:#18211B; --ink:#F3EFE6; --body:#C7CEC8; --muted:#97A39B; --line:#2F3D34;
         --clay:#E58A62; --clay-ink:#F2A887; --clay-soft:#2C2019; --night:#0B100D;}
   .app{box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
   .shot img{border-color:#2F3D34}
