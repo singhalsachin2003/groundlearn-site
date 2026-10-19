@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Valuing an interest rate swap: a three-year worked example | Groundlearn</title>
+<meta name="description" content="Value a three-year fixed-for-floating interest rate swap from a zero curve: discount factors, the par swap rate, and the PV of the fixed and floating legs.">
+<link rel="canonical" href="https://groundlearn.com/learn/interest-rate-swap-valuation/">
+<meta name="theme-color" content="#16201B">
+<link rel="icon" type="image/svg+xml" href="/mark.svg">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Groundlearn">
+<meta property="og:title" content="Valuing an interest rate swap: a three-year worked example | Groundlearn">
+<meta property="og:description" content="Value a three-year fixed-for-floating interest rate swap from a zero curve: discount factors, the par swap rate, and the PV of the fixed and floating legs.">
+<meta property="og:url" content="https://groundlearn.com/learn/interest-rate-swap-valuation/">
+<meta property="og:image" content="https://groundlearn.com/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/serif-600.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Valuing an interest rate swap: a three-year worked example","description":"Value a three-year fixed-for-floating interest rate swap from a zero curve: discount factors, the par swap rate, and the PV of the fixed and floating legs.","datePublished":"2026-10-19","dateModified":"2026-10-19","mainEntityOfPage":"https://groundlearn.com/learn/interest-rate-swap-valuation/","author":{"@type":"Organization","name":"Groundlearn","url":"https://groundlearn.com/"},"publisher":{"@type":"Organization","name":"Groundlearn","url":"https://groundlearn.com/"},"image":"https://groundlearn.com/og.jpg"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Groundlearn","item":"https://groundlearn.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://groundlearn.com/learn/"},{"@type":"ListItem","position":3,"name":"Interest rate swap valuation","item":"https://groundlearn.com/learn/interest-rate-swap-valuation/"}]}]}
+</script>
+<link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/learn.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Groundlearn home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="21" width="26" height="7" rx="2" fill="currentColor"/><rect x="6.5" y="12.5" width="19" height="7" rx="2" fill="currentColor" opacity=".72"/><rect x="10" y="4" width="12" height="7" rx="2" fill="#B04A28"/></svg>
+      Groundlearn
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="/cornerstone/" class="keep">Cornerstone</a>
+      <a href="/otc-learn/" class="keep">OTC Learn</a>
+      <a href="/learn/">Guides</a>
+      <a href="/#about">About</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="page"><div class="wrap">
+<p class="crumbs"><a href="/">Groundlearn</a> / <a href="/learn/">Guides</a> / Interest rate swap valuation</p>
+<p class="meta">By Groundlearn · Updated 19 October 2026</p>
+<h1>Valuing an interest rate swap: a three-year worked example</h1>
+<p class="lede">Discount factors, the par swap rate and the present value of both legs, step by step, from a simple zero curve.</p>
+</div></div>
+<div class="wrap" style="max-width:860px">
+
+<section class="blk">
+<h2>What we are valuing</h2>
+<p>A plain-vanilla interest rate swap exchanges a fixed rate for a floating rate on the same notional. Nothing is exchanged at the start in a par swap, so the fixed rate is set where the two legs have the same present value. Afterwards, as rates move, one side owes the other.</p>
+<p>Here is a three-year swap on $10,000,000 notional. We pay a fixed rate of 4.00% annually and receive the floating rate, also annually. Valuation is from the payer's point of view. To keep the arithmetic visible we use annual payments and ignore day counts, credit and funding adjustments.</p>
+</section>
+
+<section class="blk">
+<h2>Step 1: discount factors from the zero curve</h2>
+<p>Take annually compounded zero rates of 3.50%, 3.80% and 4.00% for one, two and three years. The discount factor for year t is 1 / (1 + z)<sup>t</sup>.</p>
+<div class="tblwrap"><table class="tbl">
+<thead><tr><th>Year</th><th>Zero rate</th><th>Discount factor</th><th>PV of 4% fixed payment ($)</th></tr></thead>
+<tbody><tr><td>1</td><td>3.50%</td><td>0.966184</td><td>386,473</td></tr><tr><td>2</td><td>3.80%</td><td>0.928122</td><td>371,249</td></tr><tr><td>3</td><td>4.00%</td><td>0.888996</td><td>355,599</td></tr></tbody></table></div>
+<p>The sum of the discount factors, called the annuity factor, is 2.783302.</p>
+</section>
+
+<section class="blk">
+<h2>Step 2: value each leg</h2>
+<p>The fixed leg is a bond-like stream of $400,000 a year, so its present value is notional × fixed rate × annuity factor.</p>
+<div class="eq">Fixed leg PV = 10,000,000 × 4.00% × 2.783302 = $1,113,321</div>
+<p>A floating leg that resets to the discount curve is worth par immediately after each reset. Valued at the start, it is worth the notional less the final discounted notional.</p>
+<div class="eq">Floating leg PV = 10,000,000 × (1 − 0.888996) = $1,110,036</div>
+<p>The payer pays fixed and receives floating, so the value to the payer is the floating leg minus the fixed leg.</p>
+<div class="eq">Swap value (payer) = 1,110,036 − 1,113,321 = −$3,285</div>
+<p>The receiver, on the other side, is worth +$3,285. The two values always sum to zero, ignoring credit and margin.</p>
+</section>
+
+<section class="blk">
+<h2>Step 3: the par swap rate, and why the value is small</h2>
+<p>The par rate is the fixed rate that makes the swap worth zero.</p>
+<div class="eq">Par rate = (1 − DF<sub>3</sub>) / annuity factor = (1 − 0.888996) / 2.783302 = 3.9882%</div>
+<p>We pay 4.0000%, which is 1.18 basis points above the par rate, so we are paying slightly more than the market requires. That shortfall, times the notional and the annuity factor, reproduces the value: 10,000,000 × (4.0000% − 3.9882%) × 2.7833 ≈ −$3,285.</p>
+<h3>Implied forward rates</h3>
+<p>Another way to see it: the forward rates implied by the curve are 3.50% for year 1, 4.10% for year 2 and 4.40% for year 3. The floating leg is expected to pay those, and the average (weighted by discount factors) is the par rate.</p>
+</section>
+
+<section class="blk">
+<h2>What moves the value</h2>
+<ul class="tick">
+<li><strong>Parallel rate shifts.</strong> If the whole curve rises, the payer gains, because the fixed rate they pay is now below market. A swap's rate sensitivity (its DV01) is roughly notional × annuity factor × one basis point, here about $2,783 per basis point.</li>
+<li><strong>Curve shape.</strong> A swap is a package of forward rates, so a steeper or flatter curve changes the par rate even if the three-year zero rate does not move.</li>
+<li><strong>Time passing.</strong> Each payment date rolls the swap closer to maturity, and the remaining annuity factor shrinks.</li>
+<li><strong>Credit and funding.</strong> In practice dealers add credit valuation adjustment and funding adjustments to the discounted-cash-flow value above. Margin and collateral change how the swap is discounted.</li>
+</ul>
+</section>
+
+<section class="blk">
+<h2>Common exam traps</h2>
+<ul class="tick">
+<li>Discounting with the wrong curve, or with one yield instead of the zero curve.</li>
+<li>Projecting the floating payments from forward rates but forgetting to discount them. The shortcut (notional less the final discounted notional) avoids the problem.</li>
+<li>Mixing up payer and receiver signs. The payer is long a floating-rate bond and short a fixed-rate bond.</li>
+<li>Treating the par rate as the average of the zero rates. It is a weighted average of forward rates.</li>
+</ul>
+</section>
+<p class="note">Educational content only. This is not financial, investment, legal or regulatory advice. Figures are illustrations, not market data. Check the official source for your own exam or regulator before relying on any rule described here.</p>
+<div class="cta">
+<h2>See it product by product in OTC Learn</h2>
+<p>OTC derivatives explained one product at a time, with collateral and clearing covered alongside swaps, forwards, credit and commodity. Free on Android.</p>
+<a class="btn btn-solid" href="/otc-learn/">About OTC Learn</a>
+</div>
+<section class="blk"><h2>More guides</h2><ul class="rel"><li><a href="/learn/var-square-root-of-time/">Value at Risk: the square-root-of-time rule</a><span>Scale a one-day VaR to ten days with a worked example, and see where the rule breaks.</span></li><li><a href="/learn/duration-and-convexity/">Duration and convexity: how good is the approximation?</a><span>A ten-year bond repriced at four yield shocks, exactly and with the duration and convexity estimates.</span></li><li><a href="/learn/initial-margin-umr/">Initial margin and the uncleared margin rules, explained</a><span>Who has to post it, how it is sized, and why the phase-in dates matter.</span></li><li><a href="/learn/expected-shortfall-vs-var/">Expected shortfall versus VaR: what changes in the tail</a><span>Why regulators moved from 99% VaR to 97.5% expected shortfall, with normal and fat-tailed numbers.</span></li></ul></section>
+
+</div>
+</main>
+<footer>
+  <div class="wrap">
+    <ul class="foot">
+      <li><a href="/">Groundlearn</a></li>
+      <li><a href="/learn/">Guides</a></li>
+      <li><a href="/cornerstone/">Cornerstone</a></li>
+      <li><a href="/otc-learn/">OTC Learn</a></li>
+      <li><a href="https://singhalsachin2003.github.io/CornerStone/PRIVACY.html">Cornerstone privacy</a></li>
+      <li><a href="https://singhalsachin2003.github.io/OTC_Learn/privacy/">OTC Learn privacy</a></li>
+      <li><a href="mailto:contactgroundlearn@gmail.com">Contact</a></li>
+    </ul>
+    <p>Educational content only. Nothing here is financial advice, an offer to trade, or a recommendation to buy or sell any instrument.</p>
+    <p>CFA® and FRM® are registered trademarks of their respective owners. Groundlearn is not affiliated with CFA Institute or GARP.</p>
+  </div>
+</footer>
+</body>
+</html>
