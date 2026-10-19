@@ -17,3 +17,11 @@
 .rel a{font:600 19px/1.35 var(--serif);color:var(--ink)}
 .rel span{display:block;font-size:15px;color:var(--muted)}
 .blk h3{font:600 21px/1.3 var(--serif);color:var(--ink);margin:22px 0 8px}
+
+@media (prefers-color-scheme:dark){
+.cta{background:var(--surface);border:1px solid var(--line);color:var(--body)}
+.cta p{color:var(--body)}
+.cta .btn-solid{background:var(--ink);color:var(--bg)}
+.note{border-color:#3A4A40}
+.eq{background:var(--surface);border-left-color:var(--clay)}
+}
