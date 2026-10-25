@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src https://www.youtube-nocookie.com">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Duration and convexity: how good is the approximation? | Groundlearn</title>
-<meta name="description" content="A ten-year bond repriced at four yield shocks: exact change versus the duration estimate and the duration-plus-convexity estimate.">
+<title>Duration and convexity: formulas and how good the approximation is | Groundlearn</title>
+<meta name="description" content="Modified duration and convexity formulas, with a ten-year bond repriced at four yield shocks: exact change versus the duration and duration-plus-convexity estimates.">
 <link rel="canonical" href="https://groundlearn.com/learn/duration-and-convexity/">
 <meta name="theme-color" content="#16201B">
 <link rel="icon" type="image/svg+xml" href="/mark.svg">
@@ -14,19 +14,19 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Groundlearn">
-<meta property="og:title" content="Duration and convexity: how good is the approximation? | Groundlearn">
-<meta property="og:description" content="A ten-year bond repriced at four yield shocks: exact change versus the duration estimate and the duration-plus-convexity estimate.">
+<meta property="og:title" content="Duration and convexity: formulas and how good the approximation is | Groundlearn">
+<meta property="og:description" content="Modified duration and convexity formulas, with a ten-year bond repriced at four yield shocks: exact change versus the duration and duration-plus-convexity estimates.">
 <meta property="og:url" content="https://groundlearn.com/learn/duration-and-convexity/">
 <meta property="og:image" content="https://groundlearn.com/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="/serif-600.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Duration and convexity: how good is the approximation?","description":"A ten-year bond repriced at four yield shocks: exact change versus the duration estimate and the duration-plus-convexity estimate.","datePublished":"2026-10-19","dateModified":"2026-10-19","mainEntityOfPage":"https://groundlearn.com/learn/duration-and-convexity/","author":{"@type":"Organization","name":"Groundlearn","url":"https://groundlearn.com/"},"publisher":{"@type":"Organization","name":"Groundlearn","url":"https://groundlearn.com/"},"image":"https://groundlearn.com/og.jpg"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Groundlearn","item":"https://groundlearn.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://groundlearn.com/learn/"},{"@type":"ListItem","position":3,"name":"Duration and convexity","item":"https://groundlearn.com/learn/duration-and-convexity/"}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Duration and convexity: formulas and how good the approximation is","description":"Modified duration and convexity formulas, with a ten-year bond repriced at four yield shocks: exact change versus the duration and duration-plus-convexity estimates.","datePublished":"2026-10-19","dateModified":"2026-10-19","mainEntityOfPage":"https://groundlearn.com/learn/duration-and-convexity/","author":{"@type":"Organization","name":"Groundlearn","url":"https://groundlearn.com/"},"publisher":{"@type":"Organization","name":"Groundlearn","url":"https://groundlearn.com/"},"image":"https://groundlearn.com/og.jpg"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Groundlearn","item":"https://groundlearn.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://groundlearn.com/learn/"},{"@type":"ListItem","position":3,"name":"Duration and convexity","item":"https://groundlearn.com/learn/duration-and-convexity/"}]}]}
 </script>
 <link rel="stylesheet" href="/site.css">
 <link rel="stylesheet" href="/learn.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"VideoObject","name":"Duration and convexity: how good is the approximation?","description":"A ten-year bond repriced at four yield shocks, comparing the exact price change with the duration and duration-plus-convexity estimates.","thumbnailUrl":["https://i.ytimg.com/vi/-RfI5c-BVwE/maxresdefault.jpg"],"uploadDate":"2026-10-20","duration":"PT2M21S","embedUrl":"https://www.youtube.com/embed/-RfI5c-BVwE","publisher":{"@type":"Organization","name":"Groundlearn","url":"https://groundlearn.com"}}
+{"@context":"https://schema.org","@type":"VideoObject","name":"Duration and convexity: formulas and how good the approximation is","description":"A ten-year bond repriced at four yield shocks, comparing the exact price change with the duration and duration-plus-convexity estimates.","thumbnailUrl":["https://i.ytimg.com/vi/-RfI5c-BVwE/maxresdefault.jpg"],"uploadDate":"2026-10-20","duration":"PT2M21S","embedUrl":"https://www.youtube.com/embed/-RfI5c-BVwE","publisher":{"@type":"Organization","name":"Groundlearn","url":"https://groundlearn.com"}}
 </script>
 </head>
 <body>
@@ -49,13 +49,13 @@
 <div class="page"><div class="wrap">
 <p class="crumbs"><a href="/">Groundlearn</a> / <a href="/learn/">Guides</a> / Duration and convexity</p>
 <p class="meta">By Groundlearn · Updated 19 October 2026</p>
-<h1>Duration and convexity: how good is the approximation?</h1>
+<h1>Duration and convexity: formulas and how good the approximation is</h1>
 <p class="lede">A ten-year bond repriced at four yield shocks, comparing the exact price change with the duration estimate and the duration-plus-convexity estimate.</p>
 </div></div>
 <div class="wrap" style="max-width:860px">
 
 <section class="blk">
-<div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/-RfI5c-BVwE" title="Duration and convexity: how good is the approximation?" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/-RfI5c-BVwE" title="Duration and convexity: formulas and how good the approximation is" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
 <p class="vcap">Watch the short walkthrough, or <a href="https://youtu.be/-RfI5c-BVwE">open it on YouTube</a>. More on the <a href="https://www.youtube.com/channel/UCD3jRWMg75BCGWkzwHkmpog">GroundLearn channel</a>.</p>
 </section>
 
