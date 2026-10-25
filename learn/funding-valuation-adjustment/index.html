@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src https://www.youtube-nocookie.com">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Funding valuation adjustment (FVA): formula and a worked example | Groundlearn</title>
+<meta name="description" content="What FVA is, why uncollateralised derivatives carry a funding cost, the FCA and FBA formula, and a three-year worked example with every number.">
+<link rel="canonical" href="https://groundlearn.com/learn/funding-valuation-adjustment/">
+<meta name="theme-color" content="#16201B">
+<link rel="icon" type="image/svg+xml" href="/mark.svg">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Groundlearn">
+<meta property="og:title" content="Funding valuation adjustment (FVA): formula and a worked example | Groundlearn">
+<meta property="og:description" content="What FVA is, why uncollateralised derivatives carry a funding cost, the FCA and FBA formula, and a three-year worked example with every number.">
+<meta property="og:url" content="https://groundlearn.com/learn/funding-valuation-adjustment/">
+<meta property="og:image" content="https://groundlearn.com/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/serif-600.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Funding valuation adjustment (FVA): formula and a worked example","description":"What FVA is, why uncollateralised derivatives carry a funding cost, the FCA and FBA formula, and a three-year worked example with every number.","datePublished":"2026-10-25","dateModified":"2026-10-25","mainEntityOfPage":"https://groundlearn.com/learn/funding-valuation-adjustment/","author":{"@type":"Organization","name":"Groundlearn","url":"https://groundlearn.com/"},"publisher":{"@type":"Organization","name":"Groundlearn","url":"https://groundlearn.com/"},"image":"https://groundlearn.com/og.jpg"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Groundlearn","item":"https://groundlearn.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://groundlearn.com/learn/"},{"@type":"ListItem","position":3,"name":"Funding valuation adjustment","item":"https://groundlearn.com/learn/funding-valuation-adjustment/"}]}]}
+</script>
+<link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/learn.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoObject","name":"Funding valuation adjustment (FVA): formula and a worked example","description":"Funding valuation adjustment computed step by step from expected exposure, discount factors and the funding spread.","thumbnailUrl":["https://i.ytimg.com/vi/QOmq4OYWva8/maxresdefault.jpg"],"uploadDate":"2026-10-25","duration":"PT2M57S","embedUrl":"https://www.youtube.com/embed/QOmq4OYWva8","publisher":{"@type":"Organization","name":"Groundlearn","url":"https://groundlearn.com"}}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Groundlearn home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="21" width="26" height="7" rx="2" fill="currentColor"/><rect x="6.5" y="12.5" width="19" height="7" rx="2" fill="currentColor" opacity=".72"/><rect x="10" y="4" width="12" height="7" rx="2" fill="#B04A28"/></svg>
+      Groundlearn
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="/cornerstone/" class="keep">Cornerstone</a>
+      <a href="/otc-learn/" class="keep">OTC Learn</a>
+      <a href="/learn/">Guides</a>
+      <a href="/#about">About</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="page"><div class="wrap">
+<p class="crumbs"><a href="/">Groundlearn</a> / <a href="/learn/">Guides</a> / Funding valuation adjustment</p>
+<p class="meta">By Groundlearn · Updated 25 October 2026</p>
+<h1>Funding valuation adjustment (FVA): formula and a worked example</h1>
+<p class="lede">Why an uncollateralised derivative costs money to fund, and how to put a number on it from exposure, discounting and the funding spread.</p>
+</div></div>
+<div class="wrap" style="max-width:860px">
+
+<section class="blk">
+<div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/QOmq4OYWva8" title="Funding valuation adjustment (FVA): formula and a worked example" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<p class="vcap">Watch the short walkthrough, or <a href="https://youtu.be/QOmq4OYWva8">open it on YouTube</a>. More on the <a href="https://www.youtube.com/channel/UCD3jRWMg75BCGWkzwHkmpog">GroundLearn channel</a>.</p>
+</section>
+
+<section class="blk">
+<h2>What FVA measures</h2>
+<p>A bank that trades an uncollateralised derivative with a client usually hedges it with a dealer under a collateral agreement (a CSA). When the client trade moves in the bank's favour, the hedge moves against it: the bank must post cash variation margin to the dealer but receives nothing from the client. That cash has to be borrowed at the bank's own funding rate, which sits above the risk-free (OIS) rate that collateral earns.</p>
+<p>Funding valuation adjustment (FVA) is the expected cost of that funding over the life of the trade. When the client trade is against the bank, the hedge pays margin that the bank can use, which is a funding benefit. So FVA has two parts:</p>
+<div class="eq">FVA = FCA − FBA<br>FCA ≈ Σ s<sub>F</sub> × EE(t<sub>i</sub>) × DF(t<sub>i</sub>) × Δt<sub>i</sub><br>FBA ≈ Σ s<sub>F</sub> × ENE(t<sub>i</sub>) × DF(t<sub>i</sub>) × Δt<sub>i</sub></div>
+<ul class="tick">
+<li><strong>FCA</strong>, the funding cost adjustment, applies to the expected positive exposure, when the client owes you.</li>
+<li><strong>FBA</strong>, the funding benefit adjustment, applies to the expected negative exposure (ENE, shown as a positive amount), when you owe the client.</li>
+<li><strong>s<sub>F</sub></strong> is the funding spread: the bank's unsecured borrowing rate minus the risk-free rate.</li>
+<li><strong>EE(t)</strong> and <strong>DF(t)</strong> are expected exposure and the discount factor, exactly as in our <a href="/learn/credit-valuation-adjustment/">CVA guide</a>; <strong>Δt</strong> is the length of each period in years.</li>
+</ul>
+</section>
+
+<section class="blk">
+<h2>Worked example</h2>
+<p>Take the same three-year, $10m swap as in the CVA guide, traded without collateral. Its expected exposure is $150,000 at one year, $180,000 at two and $90,000 at three. Assume an expected negative exposure of $60,000, $80,000 and $40,000, a funding spread of 50 basis points a year, and the discount factors from our <a href="/learn/interest-rate-swap-valuation/">swap valuation guide</a>.</p>
+<div class="tblwrap"><table class="tbl">
+<thead><tr><th>Year</th><th>EE ($)</th><th>ENE ($)</th><th>DF</th><th>FCA ($)</th><th>FBA ($)</th></tr></thead>
+<tbody><tr><td>1</td><td>150,000</td><td>60,000</td><td>0.9662</td><td>725</td><td>290</td></tr><tr><td>2</td><td>180,000</td><td>80,000</td><td>0.9281</td><td>835</td><td>371</td></tr><tr><td>3</td><td>90,000</td><td>40,000</td><td>0.8890</td><td>400</td><td>178</td></tr></tbody></table></div>
+<p>Each FCA entry is 0.50% × EE × DF × 1 year; each FBA entry uses ENE instead. The funding cost adds up to about $1,960, roughly 2.0 basis points of notional. The funding benefit is about $839, so the net FVA is a cost of about $1,121.</p>
+<p>A full model also weights each period by the probability that both parties are still alive, which lowers these figures slightly. We leave that out to keep the arithmetic visible.</p>
+</section>
+
+<section class="blk">
+<h2>What changes the number</h2>
+<ul class="tick">
+<li><strong>Funding spread.</strong> FVA scales with it: at 100 basis points the FCA doubles to about $3,920.</li>
+<li><strong>Collateral.</strong> If a CSA cuts the exposure by 80%, the FCA falls to about $392. Under a full two-way CSA with cash variation margin, FVA largely disappears, because the client trade funds itself.</li>
+<li><strong>Exposure profile.</strong> Longer maturities, in-the-money trades and one-way exposures (a client who only receives fixed, for example) raise FCA.</li>
+<li><strong>Initial margin.</strong> Funding the initial margin posted on the hedge is a separate charge, the margin valuation adjustment (MVA). See our <a href="/learn/initial-margin-umr/">initial margin guide</a>.</li>
+</ul>
+</section>
+
+<section class="blk">
+<h2>FVA, CVA, DVA and MVA</h2>
+<p>CVA prices the counterparty's default, and DVA prices your own default from the counterparty's point of view. FVA prices the cost of funding, and MVA the cost of funding initial margin. Together with capital costs (KVA) these are often grouped as XVA.</p>
+<p>FBA and DVA overlap: both reward you for your own credit spread, so adding both double-counts. Firms handle this differently, for example by booking FCA and DVA only, or by splitting the funding spread into a credit part and a liquidity part. Whether FVA belongs in fair value at all has been debated in academic work, but many large dealers now include a funding adjustment in their derivative valuations. Treat this guide as the concept, not a statement of any firm's methodology.</p>
+</section>
+
+<section class="blk">
+<h2>Common exam traps</h2>
+<ul class="tick">
+<li>Applying FVA to a fully collateralised trade, where funding cost is close to zero.</li>
+<li>Using the full funding rate instead of the spread over the risk-free rate.</li>
+<li>Using the total mark-to-market instead of expected positive exposure for FCA and expected negative exposure for FBA.</li>
+<li>Counting both FBA and DVA in full.</li>
+<li>Confusing FVA with MVA: one funds variation margin on the hedge, the other funds initial margin.</li>
+</ul>
+</section>
+<p class="note">Educational content only. This is not financial, investment, legal or regulatory advice. Figures are illustrations, not market data. Check the official source for your own exam or regulator before relying on any rule described here.</p>
+<div class="cta">
+<h2>See it product by product in OTC Learn</h2>
+<p>OTC derivatives explained one product at a time, with collateral and clearing covered alongside swaps, forwards, credit and commodity. Free on Android.</p>
+<a class="btn btn-solid" href="/otc-learn/">About OTC Learn</a><p style="margin:14px 0 0">Or get a free desk quiz every day on the <a href="https://whatsapp.com/channel/0029Vb9Pn6h9hXF2IeUaPU3K" style="color:inherit;text-decoration:underline">OTC Learn WhatsApp channel</a>.</p></div>
+<section class="blk"><h2>Related guides</h2><ul class="rel"><li><a href="/learn/credit-valuation-adjustment/">Credit valuation adjustment (CVA): a worked example</a><span>What counterparty credit risk costs, from exposure, default probability and recovery.</span></li><li><a href="/learn/initial-margin-umr/">Initial margin and the uncleared margin rules, explained</a><span>Who has to post it, how it is sized, and why the phase-in dates matter.</span></li><li><a href="/learn/interest-rate-swap-valuation/">Valuing an interest rate swap: a three-year worked example</a><span>Discount factors, the par swap rate and the value of a 4% swap, step by step.</span></li></ul></section>
+
+</div>
+</main>
+<footer>
+  <div class="wrap">
+    <ul class="foot">
+      <li><a href="/">Groundlearn</a></li>
+      <li><a href="/learn/">Guides</a></li>
+      <li><a href="/cornerstone/">Cornerstone</a></li>
+      <li><a href="/otc-learn/">OTC Learn</a></li>
+      <li><a href="https://singhalsachin2003.github.io/CornerStone/PRIVACY.html">Cornerstone privacy</a></li>
+      <li><a href="https://singhalsachin2003.github.io/OTC_Learn/privacy/">OTC Learn privacy</a></li>
+      <li><a href="https://whatsapp.com/channel/0029Vb9LcPUFXUudEZ6Hm61m">Cornerstone on WhatsApp</a></li><li><a href="https://whatsapp.com/channel/0029Vb9Pn6h9hXF2IeUaPU3K">OTC Learn on WhatsApp</a></li><li><a href="mailto:contactgroundlearn@gmail.com">Contact</a></li>
+    </ul>
+    <p>Educational content only. Nothing here is financial advice, an offer to trade, or a recommendation to buy or sell any instrument.</p>
+    <p>CFA® and FRM® are registered trademarks of their respective owners. Groundlearn is not affiliated with CFA Institute or GARP.</p>
+  </div>
+</footer>
+</body>
+</html>
