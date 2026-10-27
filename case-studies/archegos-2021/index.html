@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src https://www.youtube-nocookie.com">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Archegos (2021) explained: what happened and why | Groundlearn</title>
+<meta name="description" content="Archegos (2021) explained: what happened, why it failed, and what it teaches about counterparty, concentration and margin risk in prime brokerage.">
+<link rel="canonical" href="https://groundlearn.com/case-studies/archegos-2021/">
+<meta name="theme-color" content="#16201B">
+<link rel="icon" type="image/svg+xml" href="/mark.svg">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Groundlearn">
+<meta property="og:title" content="Archegos (2021) explained: what happened and why | Groundlearn">
+<meta property="og:description" content="Archegos (2021) explained: what happened, why it failed, and what it teaches about counterparty, concentration and margin risk in prime brokerage.">
+<meta property="og:url" content="https://groundlearn.com/case-studies/archegos-2021/">
+<meta property="og:image" content="https://groundlearn.com/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/serif-600.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Archegos, 2021: Five banks, one position, and none of them could see it", "description": "Archegos (2021) explained: what happened, why it failed, and what it teaches about counterparty, concentration and margin risk in prime brokerage.", "url": "https://groundlearn.com/case-studies/archegos-2021/", "mainEntityOfPage": "https://groundlearn.com/case-studies/archegos-2021/", "datePublished": "2026-10-27", "dateModified": "2026-10-27", "inLanguage": "en", "isAccessibleForFree": true, "about": "Archegos", "articleSection": "Case studies", "author": {"@type": "Organization", "name": "Groundlearn", "url": "https://groundlearn.com/"}, "publisher": {"@type": "Organization", "name": "Groundlearn", "url": "https://groundlearn.com/", "logo": {"@type": "ImageObject", "url": "https://groundlearn.com/mark-512.png"}}, "image": "https://groundlearn.com/og.jpg"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Groundlearn", "item": "https://groundlearn.com/"}, {"@type": "ListItem", "position": 2, "name": "Case studies", "item": "https://groundlearn.com/case-studies/"}, {"@type": "ListItem", "position": 3, "name": "Archegos, 2021", "item": "https://groundlearn.com/case-studies/archegos-2021/"}]}]}
+</script>
+<link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/learn.css">
+<style>.glance{width:100%;border-collapse:collapse;margin:8px 0 6px;font-size:16px}.glance th,.glance td{padding:10px 12px;border-top:1px solid var(--line);text-align:left;vertical-align:top}.glance tr:first-child th,.glance tr:first-child td{border-top:0}.glance th{width:120px;font:700 13px/1.4 var(--sans);letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}.kt dt{font:600 18px/1.35 var(--serif);margin:12px 0 2px}.kt dt a{color:var(--ink)}.kt dd{margin:0 0 4px;color:var(--body)}.pn{display:flex;justify-content:space-between;gap:12px;margin:26px 0 8px;font:600 15px/1.4 var(--sans)}.pn a{color:var(--clay-ink,var(--clay))}.risk{display:inline-block;font:700 12px/1.3 var(--sans);letter-spacing:.04em;text-transform:uppercase;color:var(--clay-ink,var(--clay));margin:0 0 4px}.tl{list-style:none;margin:0;padding:0}.tl li{display:grid;grid-template-columns:64px 1fr;gap:4px 14px;padding:12px 0;border-top:1px solid var(--line)}.tl li:first-child{border-top:0}.tl .y{font:700 17px/1.4 var(--sans);color:var(--clay-ink,var(--clay))}.tl a{font:600 19px/1.35 var(--serif);color:var(--ink)}.tl span{display:block;font-size:15px;color:var(--muted)}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Groundlearn home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="21" width="26" height="7" rx="2" fill="currentColor"/><rect x="6.5" y="12.5" width="19" height="7" rx="2" fill="currentColor" opacity=".72"/><rect x="10" y="4" width="12" height="7" rx="2" fill="#B04A28"/></svg>
+      Groundlearn
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="/cornerstone/" class="keep">Cornerstone</a>
+      <a href="/otc-learn/" class="keep">OTC Learn</a>
+      <a href="/learn/">Guides</a>
+      <a href="/glossary/">Glossary</a>
+      <a href="/case-studies/">Case studies</a>
+      <a href="/#about">About</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="page"><div class="wrap">
+<p class="crumbs"><a href="/">Groundlearn</a> / <a href="/case-studies/">Case studies</a> / Archegos, 2021</p>
+
+<h1>Archegos, 2021</h1>
+<p class="lede"><span class="risk">Counterparty, concentration and margin risk in prime brokerage</span><br>Five banks, one position, and none of them could see it.</p>
+</div></div>
+<div class="wrap" style="max-width:860px">
+<section class="blk">
+<h2>At a glance</h2>
+<div class="tblwrap"><table class="glance"><tbody><tr><th>When</th><td>March 2021</td></tr><tr><th>Who</th><td>Archegos Capital Management, a family office, and its prime brokers</td></tr><tr><th>Instruments</th><td>Total return swaps on a handful of US and Chinese media and technology shares</td></tr><tr><th>Loss</th><td>Roughly $10bn across the banks, about $5.5bn at Credit Suisse</td></tr><tr><th>Risk type</th><td>Counterparty, concentration and margin risk in prime brokerage</td></tr></tbody></table></div>
+</section>
+<section class="blk">
+<h2>What happened</h2>
+<p>Archegos built very large, concentrated bets on a few shares, including ViacomCBS, using total return swaps with several prime brokers at once. In late March 2021 ViacomCBS fell after announcing a share sale, Archegos could not meet its margin calls, and the banks began selling the underlying stock. Goldman Sachs and Morgan Stanley sold early and lost little; Credit Suisse lost about $5.5bn, Nomura about $2.9bn, and others hundreds of millions each.</p>
+</section>
+<section class="blk">
+<h2>Why it went wrong</h2>
+<p>Under a total return swap the bank holds the shares and the fund receives their return, so the fund crossed no disclosure thresholds and its position was invisible in public filings. Spread across five brokers, each bank saw a position it thought was large but survivable. Margin did not scale with how concentrated the book was or how long the shares would take to sell. Credit Suisse&#x27;s own review later described limits repeatedly breached, margin terms loosened to keep the client, and internal warnings left unanswered.</p>
+</section>
+<section class="blk">
+<h2>What it teaches</h2>
+<p>Gross exposure matters when positions are correlated, because netting names that fall together nets nothing. A derivative can move disclosure to whoever holds the hedge, so public filings may not show who really bears the risk. And in a disorderly unwind, the order in which counterparties exit decides most of the outcome.</p>
+</section>
+<section class="blk">
+<h2>Key terms</h2>
+<dl class="kt"><dt>Family office</dt><dd>A firm managing a single family’s wealth, subject to lighter registration and disclosure than a fund.</dd><dt>Prime brokerage</dt><dd>The bank service providing financing, execution and custody to a fund, and the margin terms that go with it.</dd><dt>Gross exposure</dt><dd>The total size of positions before offsetting longs against shorts — the number that matters when they move together.</dd><dt>Days to liquidate</dt><dd>How long a position would take to sell at normal volumes, and so how stale the price used to margin it is.</dd><dt>Beneficial ownership</dt><dd>Who is treated as holding a share for disclosure purposes — the dealer hedging a swap, not the fund receiving its return.</dd><dt>Disorderly unwind</dt><dd>A forced liquidation in which sellers compete, so the price achieved is far below the marked value.</dd></dl>
+</section>
+<section class="blk">
+<h2>Where it sits in the course</h2>
+<p>Case studies like this one are used throughout risk management teaching, including FRM® preparation, as worked examples of counterparty, concentration and margin risk in prime brokerage. In OTC Learn the lesson runs in five steps: what happened, the position, why it broke, what it cost and what it teaches, followed by a worked example with the numbers. <a href="https://singhalsachin2003.github.io/OTC_Learn/product/archegos/">See the lesson outline</a>.</p>
+</section>
+<section class="blk">
+<h2>The instruments behind it</h2>
+<p>OTC Learn lessons on the products this case turns on:</p>
+<ul class="rel"><li><a href="https://singhalsachin2003.github.io/OTC_Learn/product/trs/">Total Return Swap</a><span>Rent the full return of an asset</span></li><li><a href="https://singhalsachin2003.github.io/OTC_Learn/product/eqswap/">Equity Swap</a><span>Swap equity returns for a funding rate</span></li><li><a href="https://singhalsachin2003.github.io/OTC_Learn/product/cfd/">Contract for Difference</a><span>Cash-settled exposure to a price move</span></li></ul>
+</section>
+<p class="note">Educational content only. Figures are from the public record, such as regulatory reports, commissioned reviews and court judgments, and estimates are described as such. This is not financial, investment, legal or regulatory advice.</p>
+<div class="cta">
+<h2>Go deeper in OTC Learn</h2>
+<p>Archegos, 2021 has a five-step lesson, a worked example with the numbers, and a bank of questions in OTC Learn, free to download on Android. The core catalogue of 36 products stays free; the case studies are part of the subscription.</p>
+<a class="btn btn-solid" href="/otc-learn/">About OTC Learn</a><p style="margin:14px 0 0">Or get a free question every day on the <a href="https://whatsapp.com/channel/0029Vb9Pn6h9hXF2IeUaPU3K" style="color:inherit;text-decoration:underline">OTC Learn WhatsApp channel</a>.</p></div>
+<p class="pn"><a href="/case-studies/swiss-franc-floor-2015/">← The Swiss franc floor, 2015</a><a href="/case-studies/">All case studies</a><a href="/case-studies/lme-nickel-squeeze-2022/">The LME nickel squeeze, 2022 →</a></p>
+</div>
+</main>
+<footer>
+  <div class="wrap">
+    <ul class="foot">
+      <li><a href="/">Groundlearn</a></li>
+      <li><a href="/learn/">Guides</a></li>
+      <li><a href="/glossary/">Glossary</a></li>
+      <li><a href="/case-studies/">Case studies</a></li>
+      <li><a href="/cornerstone/">Cornerstone</a></li>
+      <li><a href="/otc-learn/">OTC Learn</a></li>
+      <li><a href="https://singhalsachin2003.github.io/CornerStone/PRIVACY.html">Cornerstone privacy</a></li>
+      <li><a href="https://singhalsachin2003.github.io/OTC_Learn/privacy/">OTC Learn privacy</a></li>
+      <li><a href="https://whatsapp.com/channel/0029Vb9LcPUFXUudEZ6Hm61m">Cornerstone on WhatsApp</a></li><li><a href="https://whatsapp.com/channel/0029Vb9Pn6h9hXF2IeUaPU3K">OTC Learn on WhatsApp</a></li><li><a href="mailto:contactgroundlearn@gmail.com">Contact</a></li>
+    </ul>
+    <p>Educational content only. Nothing here is financial advice, an offer to trade, or a recommendation to buy or sell any instrument.</p>
+    <p>CFA® and FRM® are registered trademarks of their respective owners. Groundlearn is not affiliated with CFA Institute or GARP.</p>
+  </div>
+</footer>
+</body>
+</html>
