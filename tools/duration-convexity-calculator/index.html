@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; script-src 'self'; frame-src https://www.youtube-nocookie.com">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Duration and convexity calculator | Groundlearn</title>
+<meta name="description" content="Free duration and convexity calculator: bond price, Macaulay and modified duration, convexity, and the estimated vs exact price change for a yield shock.">
+<link rel="canonical" href="https://groundlearn.com/tools/duration-convexity-calculator/">
+<meta name="theme-color" content="#16201B">
+<link rel="icon" type="image/svg+xml" href="/mark.svg">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Groundlearn">
+<meta property="og:title" content="Duration and convexity calculator | Groundlearn">
+<meta property="og:description" content="Free duration and convexity calculator: bond price, Macaulay and modified duration, convexity, and the estimated vs exact price change for a yield shock.">
+<meta property="og:url" content="https://groundlearn.com/tools/duration-convexity-calculator/">
+<meta property="og:image" content="https://groundlearn.com/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/serif-600.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Duration and convexity calculator", "url": "https://groundlearn.com/tools/duration-convexity-calculator/", "description": "Free duration and convexity calculator: bond price, Macaulay and modified duration, convexity, and the estimated vs exact price change for a yield shock.", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Groundlearn", "url": "https://groundlearn.com/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Groundlearn", "item": "https://groundlearn.com/"}, {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://groundlearn.com/tools/"}, {"@type": "ListItem", "position": 3, "name": "Duration and convexity", "item": "https://groundlearn.com/tools/duration-convexity-calculator/"}]}]}
+</script>
+<link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/learn.css">
+<style>.calc{margin:8px 0 10px;padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px 16px;margin:0 0 18px}.fields label{display:block;font:600 14px/1.3 var(--sans);color:var(--ink);margin:0 0 6px}.fields input,.fields select{width:100%;box-sizing:border-box;padding:10px 12px;font:16px/1.3 var(--sans);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px}.fields input:focus,.fields select:focus{outline:2px solid var(--clay);outline-offset:1px}.fields .hint{display:block;font-size:13px;color:var(--muted);margin-top:4px}.out{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0}.stat{padding:12px 14px;border-radius:10px;background:var(--bg);border:1px solid var(--line)}.stat dt{font:700 12px/1.3 var(--sans);letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}.stat dd{margin:0;font:600 22px/1.2 var(--serif);color:var(--ink);font-variant-numeric:tabular-nums}.stat.key{background:var(--clay-soft);border-color:transparent}.stat.key dd{color:var(--clay-ink)}.work{margin:14px 0 0;font-size:15px;color:var(--body)}.err{margin:0 0 12px;color:var(--clay-ink);font-weight:600}.ztab{width:100%;border-collapse:collapse;font-size:15px;font-variant-numeric:tabular-nums;margin:10px 0 4px}.ztab th,.ztab td{padding:8px;white-space:nowrap;border-top:1px solid var(--line);text-align:left}.ztab th{font:700 12px/1.3 var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border-top:0}.zgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;margin:0 0 18px}.zgrid label{font:600 13px/1.3 var(--sans);color:var(--muted);display:block;margin:0 0 4px}.zgrid input{width:100%;box-sizing:border-box;padding:8px 10px;font:16px/1.3 var(--sans);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px}@media (max-width:620px){.fields,.out{grid-template-columns:1fr 1fr;gap:10px}.calc{padding:16px}.stat dd{font-size:19px}.zgrid{grid-template-columns:repeat(3,1fr)}}.formula{font:16px/1.6 var(--sans);padding:12px 16px;border-left:4px solid var(--clay);background:var(--surface);margin:10px 0 14px}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Groundlearn home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="21" width="26" height="7" rx="2" fill="currentColor"/><rect x="6.5" y="12.5" width="19" height="7" rx="2" fill="currentColor" opacity=".72"/><rect x="10" y="4" width="12" height="7" rx="2" fill="#B04A28"/></svg>
+      Groundlearn
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="/cornerstone/" class="keep">Cornerstone</a>
+      <a href="/otc-learn/" class="keep">OTC Learn</a>
+      <a href="/learn/">Guides</a>
+      <a href="/glossary/">Glossary</a>
+      <a href="/case-studies/">Case studies</a>
+      <a href="/#about">About</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="page"><div class="wrap">
+<p class="crumbs"><a href="/">Groundlearn</a> / <a href="/tools/">Calculators</a> / Duration and convexity</p>
+
+<h1>Duration and convexity calculator</h1>
+<p class="lede">Price a fixed-coupon bond, measure its duration and convexity, and see how well the approximation tracks the exact price change.</p>
+</div></div>
+<div class="wrap" style="max-width:860px">
+<section class="blk"><h2>Calculator</h2>
+<div class="calc" id="dc-calc">
+<p class="err" id="d-err" role="alert" hidden></p>
+<div class="fields">
+<div><label for="d-face">Face value</label><input id="d-face" type="number" inputmode="decimal" step="any" value="100"></div>
+<div><label for="d-cpn">Coupon rate (%)</label><input id="d-cpn" type="number" inputmode="decimal" step="any" value="5"></div>
+<div><label for="d-ytm">Yield to maturity (%)</label><input id="d-ytm" type="number" inputmode="decimal" step="any" value="5"></div>
+<div><label for="d-yrs">Years to maturity</label><input id="d-yrs" type="number" inputmode="decimal" step="any" value="10"></div>
+<div><label for="d-freq">Coupons per year</label><select id="d-freq"><option value="1" selected>Annual</option><option value="2">Semi-annual</option><option value="4">Quarterly</option></select></div>
+<div><label for="d-bp">Yield change (bp)</label><input id="d-bp" type="number" inputmode="decimal" step="1" value="100"><span class="hint">Positive means yields rise</span></div>
+</div>
+<dl class="out" aria-live="polite">
+<div class="stat"><dt>Price</dt><dd id="d-p">100.0000</dd></div>
+<div class="stat"><dt>Macaulay duration</dt><dd id="d-mac">8.1078</dd></div>
+<div class="stat"><dt>Modified duration</dt><dd id="d-mod">7.7217</dd></div>
+<div class="stat"><dt>Convexity</dt><dd id="d-cvx">75.00</dd></div>
+<div class="stat"><dt>Duration effect</dt><dd id="d-dur">−7.72%</dd></div>
+<div class="stat"><dt>Convexity effect</dt><dd id="d-cv">+0.37%</dd></div>
+<div class="stat key"><dt>Estimated price change</dt><dd id="d-est">−7.35%</dd></div>
+<div class="stat"><dt>Exact (repriced)</dt><dd id="d-exact">−7.36%</dd></div>
+<div class="stat"><dt>Estimate error</dt><dd id="d-err2">0.013 pp</dd></div>
+</dl>
+<p class="work" id="d-work">−7.7217 × +0.0100 × 100 = −7.72%, plus ½ × 75.00 × 0.0100² × 100 = +0.37%, giving −7.35%.</p>
+<div class="tblwrap"><table class="ztab"><thead><tr><th>Shock</th><th>Duration only</th><th>With convexity</th><th>Exact</th></tr></thead><tbody id="d-table"><tr><td>−200 bp</td><td>+15.44%</td><td>+16.94%</td><td>+17.06%</td></tr><tr><td>−100 bp</td><td>+7.72%</td><td>+8.10%</td><td>+8.11%</td></tr><tr><td>−50 bp</td><td>+3.86%</td><td>+3.95%</td><td>+3.96%</td></tr><tr><td>+50 bp</td><td>−3.86%</td><td>−3.77%</td><td>−3.77%</td></tr><tr><td>+100 bp</td><td>−7.72%</td><td>−7.35%</td><td>−7.36%</td></tr><tr><td>+200 bp</td><td>−15.44%</td><td>−13.94%</td><td>−14.05%</td></tr></tbody></table></div>
+</div></section>
+<section class="blk"><h2>How it works</h2>
+<p>The calculator prices the bond from its cash flows, then measures how sensitive that price is to the yield. Macaulay duration is the present-value-weighted average time to the cash flows. Modified duration divides it by one plus the periodic yield and gives the percentage price change for a one-unit change in yield. Convexity captures the curvature that duration misses.</p>
+<p class="formula">%ΔP ≈ −D<sub>mod</sub> × Δy + ½ × C × (Δy)²</p>
+<p>Δy is in decimals, so 100 bp is 0.01. Duration alone always overstates the fall when yields rise and understates the gain when they fall, for an option-free bond. Adding convexity closes most of the gap; the exact column reprices the bond at the new yield so you can see what is left. Convexity here is quoted in years squared, on the same annual basis as duration.</p>
+<p>The calculator assumes the price falls on a coupon date (no accrued interest), a flat yield and no embedded options. For callable or mortgage-backed bonds, use effective duration and convexity instead.</p>
+</section>
+<section class="blk"><h2>Worked example</h2>
+<p>A 10-year bond with a 5% annual coupon, yielding 5%, prices at par. Modified duration is 7.7217 and convexity 75.00. For a +100 bp shock, duration gives −7.72% and convexity adds +0.37%, an estimate of −7.35% against an exact −7.36%. The <a href="/learn/duration-and-convexity/">duration and convexity guide</a> walks through the same bond.</p>
+</section>
+<section class="blk"><h2>Related</h2><ul class="rel"><li><a href="/learn/duration-and-convexity/">Duration and convexity</a><span>The full guide with a shock table.</span></li><li><a href="/ba-ii-plus/bond-price/">Bond price on the BA II Plus</a><span>Keystrokes for pricing the same bond.</span></li><li><a href="/glossary/modified-duration/">Modified duration</a><span>Glossary definition with the exam angle.</span></li><li><a href="/glossary/convexity/">Convexity</a><span>Glossary definition with the exam angle.</span></li><li><a href="/glossary/effective-duration/">Effective duration</a><span>For bonds with embedded options.</span></li><li><a href="/tools/">All calculators</a><span>VaR scaling, swap valuation.</span></li></ul></section>
+<p class="note">Educational content only. This is not financial, investment, legal or regulatory advice. Results are illustrations under the stated assumptions, not a valuation of any real security.</p>
+<div class="cta">
+<h2>Practise it in Cornerstone</h2>
+<p>Snapshot cards and five-question sessions for CFA® and FRM® candidates, free on Android and offline. The full glossary is in the app too, with search.</p>
+<a class="btn btn-solid" href="/cornerstone/">About Cornerstone</a><p style="margin:14px 0 0">Or get a free practice question every day on the <a href="https://whatsapp.com/channel/0029Vb9LcPUFXUudEZ6Hm61m" style="color:inherit;text-decoration:underline">Cornerstone WhatsApp channel</a>.</p></div>
+</div>
+</main>
+<footer>
+  <div class="wrap">
+    <ul class="foot">
+      <li><a href="/">Groundlearn</a></li>
+      <li><a href="/learn/">Guides</a></li>
+      <li><a href="/glossary/">Glossary</a></li>
+      <li><a href="/case-studies/">Case studies</a></li>
+      <li><a href="/ba-ii-plus/">BA II Plus keystrokes</a></li>
+      <li><a href="/exams/">CFA and FRM exam dates</a></li>
+      <li><a href="/tools/">Calculators</a></li>
+      <li><a href="/cornerstone/">Cornerstone</a></li>
+      <li><a href="/otc-learn/">OTC Learn</a></li>
+      <li><a href="https://singhalsachin2003.github.io/CornerStone/PRIVACY.html">Cornerstone privacy</a></li>
+      <li><a href="https://singhalsachin2003.github.io/OTC_Learn/privacy/">OTC Learn privacy</a></li>
+      <li><a href="https://whatsapp.com/channel/0029Vb9LcPUFXUudEZ6Hm61m">Cornerstone on WhatsApp</a></li><li><a href="https://whatsapp.com/channel/0029Vb9Pn6h9hXF2IeUaPU3K">OTC Learn on WhatsApp</a></li><li><a href="mailto:contactgroundlearn@gmail.com">Contact</a></li>
+    </ul>
+    <p>Educational content only. Nothing here is financial advice, an offer to trade, or a recommendation to buy or sell any instrument.</p>
+    <p>CFA® and FRM® are registered trademarks of their respective owners. Groundlearn is not affiliated with CFA Institute or GARP.</p>
+  </div>
+</footer>
+<script src="/tools/tools.js" defer></script>
+</body>
+</html>

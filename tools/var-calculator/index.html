@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; script-src 'self'; frame-src https://www.youtube-nocookie.com">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>VaR calculator: 1-day and 10-day Value at Risk | Groundlearn</title>
+<meta name="description" content="Free VaR calculator: parametric one-day and ten-day Value at Risk with square-root-of-time scaling, plus expected shortfall, with the working shown.">
+<link rel="canonical" href="https://groundlearn.com/tools/var-calculator/">
+<meta name="theme-color" content="#16201B">
+<link rel="icon" type="image/svg+xml" href="/mark.svg">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Groundlearn">
+<meta property="og:title" content="VaR calculator: 1-day and 10-day Value at Risk | Groundlearn">
+<meta property="og:description" content="Free VaR calculator: parametric one-day and ten-day Value at Risk with square-root-of-time scaling, plus expected shortfall, with the working shown.">
+<meta property="og:url" content="https://groundlearn.com/tools/var-calculator/">
+<meta property="og:image" content="https://groundlearn.com/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/serif-600.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "VaR calculator", "url": "https://groundlearn.com/tools/var-calculator/", "description": "Free VaR calculator: parametric one-day and ten-day Value at Risk with square-root-of-time scaling, plus expected shortfall, with the working shown.", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Groundlearn", "url": "https://groundlearn.com/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Groundlearn", "item": "https://groundlearn.com/"}, {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://groundlearn.com/tools/"}, {"@type": "ListItem", "position": 3, "name": "VaR calculator", "item": "https://groundlearn.com/tools/var-calculator/"}]}]}
+</script>
+<link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/learn.css">
+<style>.calc{margin:8px 0 10px;padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px 16px;margin:0 0 18px}.fields label{display:block;font:600 14px/1.3 var(--sans);color:var(--ink);margin:0 0 6px}.fields input,.fields select{width:100%;box-sizing:border-box;padding:10px 12px;font:16px/1.3 var(--sans);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px}.fields input:focus,.fields select:focus{outline:2px solid var(--clay);outline-offset:1px}.fields .hint{display:block;font-size:13px;color:var(--muted);margin-top:4px}.out{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0}.stat{padding:12px 14px;border-radius:10px;background:var(--bg);border:1px solid var(--line)}.stat dt{font:700 12px/1.3 var(--sans);letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}.stat dd{margin:0;font:600 22px/1.2 var(--serif);color:var(--ink);font-variant-numeric:tabular-nums}.stat.key{background:var(--clay-soft);border-color:transparent}.stat.key dd{color:var(--clay-ink)}.work{margin:14px 0 0;font-size:15px;color:var(--body)}.err{margin:0 0 12px;color:var(--clay-ink);font-weight:600}.ztab{width:100%;border-collapse:collapse;font-size:15px;font-variant-numeric:tabular-nums;margin:10px 0 4px}.ztab th,.ztab td{padding:8px;white-space:nowrap;border-top:1px solid var(--line);text-align:left}.ztab th{font:700 12px/1.3 var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border-top:0}.zgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;margin:0 0 18px}.zgrid label{font:600 13px/1.3 var(--sans);color:var(--muted);display:block;margin:0 0 4px}.zgrid input{width:100%;box-sizing:border-box;padding:8px 10px;font:16px/1.3 var(--sans);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px}@media (max-width:620px){.fields,.out{grid-template-columns:1fr 1fr;gap:10px}.calc{padding:16px}.stat dd{font-size:19px}.zgrid{grid-template-columns:repeat(3,1fr)}}.formula{font:16px/1.6 var(--sans);padding:12px 16px;border-left:4px solid var(--clay);background:var(--surface);margin:10px 0 14px}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Groundlearn home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="21" width="26" height="7" rx="2" fill="currentColor"/><rect x="6.5" y="12.5" width="19" height="7" rx="2" fill="currentColor" opacity=".72"/><rect x="10" y="4" width="12" height="7" rx="2" fill="#B04A28"/></svg>
+      Groundlearn
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="/cornerstone/" class="keep">Cornerstone</a>
+      <a href="/otc-learn/" class="keep">OTC Learn</a>
+      <a href="/learn/">Guides</a>
+      <a href="/glossary/">Glossary</a>
+      <a href="/case-studies/">Case studies</a>
+      <a href="/#about">About</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="page"><div class="wrap">
+<p class="crumbs"><a href="/">Groundlearn</a> / <a href="/tools/">Calculators</a> / VaR calculator</p>
+
+<h1>VaR calculator</h1>
+<p class="lede">Parametric Value at Risk for any confidence level and horizon, scaled with the square root of time, with expected shortfall alongside.</p>
+</div></div>
+<div class="wrap" style="max-width:860px">
+<section class="blk"><h2>Calculator</h2>
+<div class="calc" id="var-calc">
+<p class="err" id="v-err" role="alert" hidden></p>
+<div class="fields">
+<div><label for="v-pos">Position value ($)</label><input id="v-pos" type="number" inputmode="decimal" step="any" value="10000000"><span class="hint">Market value of the portfolio</span></div>
+<div><label for="v-vol">Daily volatility (%)</label><input id="v-vol" type="number" inputmode="decimal" step="any" value="1.2"><span class="hint">Standard deviation of daily returns</span></div>
+<div><label for="v-conf">Confidence level</label><select id="v-conf"><option value="90">90%</option><option value="95">95%</option><option value="97.5">97.5%</option><option value="99" selected>99%</option><option value="99.5">99.5%</option></select></div>
+<div><label for="v-days">Horizon (days)</label><input id="v-days" type="number" inputmode="decimal" step="1" value="10"><span class="hint">Scaled with the square root of time</span></div>
+</div>
+<dl class="out" aria-live="polite">
+<div class="stat"><dt>1-day VaR</dt><dd id="v-1">$279,162</dd></div>
+<div class="stat key"><dt>Horizon VaR</dt><dd id="v-h">$882,787</dd></div>
+<div class="stat"><dt>1-day expected shortfall</dt><dd id="v-es1">$319,826</dd></div>
+<div class="stat"><dt>Horizon expected shortfall</dt><dd id="v-esh">$1,011,378</dd></div>
+<div class="stat"><dt>z-score</dt><dd id="v-z">2.3263</dd></div>
+<div class="stat"><dt>√ horizon</dt><dd id="v-root">3.1623</dd></div>
+</dl>
+<p class="work" id="v-work">$10,000,000 × 1.20% × 2.3263 = $279,162 for one day; × √10 (3.1623) = $882,787.</p>
+</div></section>
+<section class="blk"><h2>How it works</h2>
+<p>This is parametric (variance-covariance) VaR. It assumes daily returns are normal with a mean of zero, so the loss at a given confidence level is the position times volatility times the matching z-score.</p>
+<p class="formula">1-day VaR = V × σ × z<br>h-day VaR = 1-day VaR × √h<br>1-day ES = V × σ × φ(z) ÷ (1 − c)</p>
+<p>The square-root-of-time rule needs returns that are independent and identically distributed from day to day. Volatility clustering, autocorrelation and fat tails all break it, which is why regulators and risk teams treat a scaled ten-day figure as an approximation rather than a measurement.</p>
+<p>Expected shortfall is the average loss in the tail beyond VaR. Under a normal distribution it is always larger than VaR at the same confidence level; at 97.5% it comes out close to 99% VaR, one reason Basel's market-risk framework could move to 97.5% ES without a jump in capital for normally distributed portfolios.</p>
+</section>
+<section class="blk"><h2>Worked example</h2>
+<p>A $10 million portfolio with 1.2% daily volatility at 99% confidence: z = 2.3263, so one-day VaR is $279,162. Over ten days the square-root rule gives $882,787, about 3.16 times the one-day figure, not ten times. The same numbers are walked through in the <a href="/learn/var-square-root-of-time/">square-root-of-time guide</a>.</p>
+</section>
+<section class="blk"><h2>Related</h2><ul class="rel"><li><a href="/learn/var-square-root-of-time/">Scaling VaR with the square root of time</a><span>When the rule holds and when it breaks.</span></li><li><a href="/learn/expected-shortfall-vs-var/">Expected shortfall vs VaR</a><span>Normal and fat-tailed comparison, and the Basel switch.</span></li><li><a href="/glossary/value-at-risk/">Value at Risk</a><span>Glossary definition with the exam angle.</span></li><li><a href="/glossary/expected-shortfall/">Expected shortfall</a><span>Glossary definition with the exam angle.</span></li><li><a href="/frm-part-1-topic-weights/">FRM Part I topic weights</a><span>Where VaR sits in the syllabus.</span></li><li><a href="/tools/">All calculators</a><span>Duration and convexity, swap valuation.</span></li></ul></section>
+<p class="note">Educational content only. This is not financial, investment, legal or regulatory advice. Results are illustrations under the stated assumptions, not a risk measurement of any real portfolio.</p>
+<div class="cta">
+<h2>Practise it in Cornerstone</h2>
+<p>Snapshot cards and five-question sessions for CFA® and FRM® candidates, free on Android and offline. The full glossary is in the app too, with search.</p>
+<a class="btn btn-solid" href="/cornerstone/">About Cornerstone</a><p style="margin:14px 0 0">Or get a free practice question every day on the <a href="https://whatsapp.com/channel/0029Vb9LcPUFXUudEZ6Hm61m" style="color:inherit;text-decoration:underline">Cornerstone WhatsApp channel</a>.</p></div>
+</div>
+</main>
+<footer>
+  <div class="wrap">
+    <ul class="foot">
+      <li><a href="/">Groundlearn</a></li>
+      <li><a href="/learn/">Guides</a></li>
+      <li><a href="/glossary/">Glossary</a></li>
+      <li><a href="/case-studies/">Case studies</a></li>
+      <li><a href="/ba-ii-plus/">BA II Plus keystrokes</a></li>
+      <li><a href="/exams/">CFA and FRM exam dates</a></li>
+      <li><a href="/tools/">Calculators</a></li>
+      <li><a href="/cornerstone/">Cornerstone</a></li>
+      <li><a href="/otc-learn/">OTC Learn</a></li>
+      <li><a href="https://singhalsachin2003.github.io/CornerStone/PRIVACY.html">Cornerstone privacy</a></li>
+      <li><a href="https://singhalsachin2003.github.io/OTC_Learn/privacy/">OTC Learn privacy</a></li>
+      <li><a href="https://whatsapp.com/channel/0029Vb9LcPUFXUudEZ6Hm61m">Cornerstone on WhatsApp</a></li><li><a href="https://whatsapp.com/channel/0029Vb9Pn6h9hXF2IeUaPU3K">OTC Learn on WhatsApp</a></li><li><a href="mailto:contactgroundlearn@gmail.com">Contact</a></li>
+    </ul>
+    <p>Educational content only. Nothing here is financial advice, an offer to trade, or a recommendation to buy or sell any instrument.</p>
+    <p>CFA® and FRM® are registered trademarks of their respective owners. Groundlearn is not affiliated with CFA Institute or GARP.</p>
+  </div>
+</footer>
+<script src="/tools/tools.js" defer></script>
+</body>
+</html>

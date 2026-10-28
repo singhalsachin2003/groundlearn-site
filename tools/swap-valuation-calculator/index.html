@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; script-src 'self'; frame-src https://www.youtube-nocookie.com">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Interest rate swap valuation calculator | Groundlearn</title>
+<meta name="description" content="Free interest rate swap valuation calculator: discount factors from zero rates, floating and fixed leg PVs, swap value and the par swap rate.">
+<link rel="canonical" href="https://groundlearn.com/tools/swap-valuation-calculator/">
+<meta name="theme-color" content="#16201B">
+<link rel="icon" type="image/svg+xml" href="/mark.svg">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Groundlearn">
+<meta property="og:title" content="Interest rate swap valuation calculator | Groundlearn">
+<meta property="og:description" content="Free interest rate swap valuation calculator: discount factors from zero rates, floating and fixed leg PVs, swap value and the par swap rate.">
+<meta property="og:url" content="https://groundlearn.com/tools/swap-valuation-calculator/">
+<meta property="og:image" content="https://groundlearn.com/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/serif-600.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Swap valuation calculator", "url": "https://groundlearn.com/tools/swap-valuation-calculator/", "description": "Free interest rate swap valuation calculator: discount factors from zero rates, floating and fixed leg PVs, swap value and the par swap rate.", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Groundlearn", "url": "https://groundlearn.com/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Groundlearn", "item": "https://groundlearn.com/"}, {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://groundlearn.com/tools/"}, {"@type": "ListItem", "position": 3, "name": "Swap valuation", "item": "https://groundlearn.com/tools/swap-valuation-calculator/"}]}]}
+</script>
+<link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/learn.css">
+<style>.calc{margin:8px 0 10px;padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px 16px;margin:0 0 18px}.fields label{display:block;font:600 14px/1.3 var(--sans);color:var(--ink);margin:0 0 6px}.fields input,.fields select{width:100%;box-sizing:border-box;padding:10px 12px;font:16px/1.3 var(--sans);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px}.fields input:focus,.fields select:focus{outline:2px solid var(--clay);outline-offset:1px}.fields .hint{display:block;font-size:13px;color:var(--muted);margin-top:4px}.out{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0}.stat{padding:12px 14px;border-radius:10px;background:var(--bg);border:1px solid var(--line)}.stat dt{font:700 12px/1.3 var(--sans);letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}.stat dd{margin:0;font:600 22px/1.2 var(--serif);color:var(--ink);font-variant-numeric:tabular-nums}.stat.key{background:var(--clay-soft);border-color:transparent}.stat.key dd{color:var(--clay-ink)}.work{margin:14px 0 0;font-size:15px;color:var(--body)}.err{margin:0 0 12px;color:var(--clay-ink);font-weight:600}.ztab{width:100%;border-collapse:collapse;font-size:15px;font-variant-numeric:tabular-nums;margin:10px 0 4px}.ztab th,.ztab td{padding:8px;white-space:nowrap;border-top:1px solid var(--line);text-align:left}.ztab th{font:700 12px/1.3 var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border-top:0}.zgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;margin:0 0 18px}.zgrid label{font:600 13px/1.3 var(--sans);color:var(--muted);display:block;margin:0 0 4px}.zgrid input{width:100%;box-sizing:border-box;padding:8px 10px;font:16px/1.3 var(--sans);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px}@media (max-width:620px){.fields,.out{grid-template-columns:1fr 1fr;gap:10px}.calc{padding:16px}.stat dd{font-size:19px}.zgrid{grid-template-columns:repeat(3,1fr)}}.formula{font:16px/1.6 var(--sans);padding:12px 16px;border-left:4px solid var(--clay);background:var(--surface);margin:10px 0 14px}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Groundlearn home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="21" width="26" height="7" rx="2" fill="currentColor"/><rect x="6.5" y="12.5" width="19" height="7" rx="2" fill="currentColor" opacity=".72"/><rect x="10" y="4" width="12" height="7" rx="2" fill="#B04A28"/></svg>
+      Groundlearn
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="/cornerstone/" class="keep">Cornerstone</a>
+      <a href="/otc-learn/" class="keep">OTC Learn</a>
+      <a href="/learn/">Guides</a>
+      <a href="/glossary/">Glossary</a>
+      <a href="/case-studies/">Case studies</a>
+      <a href="/#about">About</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="page"><div class="wrap">
+<p class="crumbs"><a href="/">Groundlearn</a> / <a href="/tools/">Calculators</a> / Swap valuation</p>
+
+<h1>Swap valuation calculator</h1>
+<p class="lede">Value a plain-vanilla interest rate swap from a zero curve: both legs, the value to either side, and the par rate.</p>
+</div></div>
+<div class="wrap" style="max-width:860px">
+<section class="blk"><h2>Calculator</h2>
+<div class="calc" id="sw-calc">
+<p class="err" id="s-err" role="alert" hidden></p>
+<div class="fields">
+<div><label for="s-not">Notional ($)</label><input id="s-not" type="number" inputmode="decimal" step="any" value="10000000"></div>
+<div><label for="s-fix">Fixed rate (%)</label><input id="s-fix" type="number" inputmode="decimal" step="any" value="4"></div>
+<div><label for="s-yrs">Years to maturity</label><input id="s-yrs" type="number" inputmode="decimal" step="1" value="3"><span class="hint">1 to 10, annual payments</span></div>
+<div><label for="s-side">Your side</label><select id="s-side"><option value="payer" selected>Pay fixed (payer)</option><option value="receiver">Receive fixed (receiver)</option></select></div>
+</div>
+<p style="margin:0 0 8px;font:600 14px var(--sans);color:var(--ink)">Zero rates (annual compounding)</p>
+<div class="zgrid"><div id="s-row1"><label for="s-z1">Year 1 zero (%)</label><input id="s-z1" type="number" inputmode="decimal" step="any" value="3.5"></div><div id="s-row2"><label for="s-z2">Year 2 zero (%)</label><input id="s-z2" type="number" inputmode="decimal" step="any" value="3.8"></div><div id="s-row3"><label for="s-z3">Year 3 zero (%)</label><input id="s-z3" type="number" inputmode="decimal" step="any" value="4.0"></div><div id="s-row4" hidden><label for="s-z4">Year 4 zero (%)</label><input id="s-z4" type="number" inputmode="decimal" step="any" value="4.1"></div><div id="s-row5" hidden><label for="s-z5">Year 5 zero (%)</label><input id="s-z5" type="number" inputmode="decimal" step="any" value="4.2"></div><div id="s-row6" hidden><label for="s-z6">Year 6 zero (%)</label><input id="s-z6" type="number" inputmode="decimal" step="any" value="4.25"></div><div id="s-row7" hidden><label for="s-z7">Year 7 zero (%)</label><input id="s-z7" type="number" inputmode="decimal" step="any" value="4.3"></div><div id="s-row8" hidden><label for="s-z8">Year 8 zero (%)</label><input id="s-z8" type="number" inputmode="decimal" step="any" value="4.35"></div><div id="s-row9" hidden><label for="s-z9">Year 9 zero (%)</label><input id="s-z9" type="number" inputmode="decimal" step="any" value="4.4"></div><div id="s-row10" hidden><label for="s-z10">Year 10 zero (%)</label><input id="s-z10" type="number" inputmode="decimal" step="any" value="4.45"></div></div>
+<dl class="out" aria-live="polite">
+<div class="stat key"><dt>Swap value to you</dt><dd id="s-val">−$3,285</dd></div>
+<div class="stat"><dt>Par swap rate</dt><dd id="s-par">3.9882%</dd></div>
+<div class="stat"><dt>Floating leg PV</dt><dd id="s-fltpv">$1,110,036</dd></div>
+<div class="stat"><dt>Fixed leg PV</dt><dd id="s-fixpv">$1,113,321</dd></div>
+<div class="stat"><dt>Annuity factor (Σ DF)</dt><dd id="s-annuity">2.783302</dd></div>
+<div class="stat"><dt>Value of 1 bp on the fixed rate</dt><dd id="s-dv01">$2,783</dd></div>
+</dl>
+<p class="work"><span id="s-work">Floating leg $1,110,036 − fixed leg $1,113,321 = −$3,285 to the fixed payer.</span> Side: <span id="s-side-l">payer (pay fixed, receive floating)</span>.</p>
+<div class="tblwrap"><table class="ztab"><thead><tr><th>Year</th><th>Zero rate</th><th>Discount factor</th><th>PV of fixed payment</th></tr></thead><tbody id="s-table"><tr><td>1</td><td>3.50%</td><td>0.966184</td><td>$386,473</td></tr><tr><td>2</td><td>3.80%</td><td>0.928122</td><td>$371,249</td></tr><tr><td>3</td><td>4.00%</td><td>0.888996</td><td>$355,599</td></tr></tbody></table></div>
+</div></section>
+<section class="blk"><h2>How it works</h2>
+<p>A plain-vanilla interest rate swap is valued as two legs. On a reset date the floating leg is worth par, so its present value is the notional times one minus the final discount factor. The fixed leg is a strip of coupons, each discounted with the zero rate for its date.</p>
+<p class="formula">DF<sub>t</sub> = 1 ÷ (1 + z<sub>t</sub>)<sup>t</sup><br>Floating PV = N × (1 − DF<sub>n</sub>)<br>Fixed PV = N × K × Σ DF<sub>t</sub><br>Par rate = (1 − DF<sub>n</sub>) ÷ Σ DF<sub>t</sub></p>
+<p>The payer of fixed is long the floating leg and short the fixed leg, so a fixed rate above the par rate makes the swap worth less than zero to the payer. The par rate is the fixed rate that sets the value to zero, which is how a new swap is quoted.</p>
+<p>Simplifications: annual payments on both legs, valuation on a reset date, a single curve for projection and discounting, and no day-count, credit or funding adjustments. Real desks discount with an overnight curve (SOFR, €STR) and add CVA and FVA on top.</p>
+</section>
+<section class="blk"><h2>Worked example</h2>
+<p>A three-year $10 million swap paying 4% fixed, with zero rates of 3.5%, 3.8% and 4.0%. The discount factors sum to 2.783302, the floating leg is worth $1,110,036 and the fixed leg $1,113,321, so the payer's position is worth −$3,285. The par rate is 3.9882%, just under the 4% being paid. The <a href="/learn/interest-rate-swap-valuation/">swap valuation guide</a> goes through each step.</p>
+</section>
+<section class="blk"><h2>Related</h2><ul class="rel"><li><a href="/learn/interest-rate-swap-valuation/">Interest rate swap valuation</a><span>The full guide with each step.</span></li><li><a href="/learn/credit-valuation-adjustment/">Credit valuation adjustment</a><span>What a swap is worth after counterparty risk.</span></li><li><a href="/learn/funding-valuation-adjustment/">Funding valuation adjustment</a><span>The cost of funding uncollateralised swaps.</span></li><li><a href="/glossary/swap/">Swap</a><span>Glossary definition with the exam angle.</span></li><li><a href="/otc-learn/">OTC Learn</a><span>82 OTC derivative products explained, free on Android.</span></li><li><a href="/tools/">All calculators</a><span>VaR scaling, duration and convexity.</span></li></ul></section>
+<p class="note">Educational content only. This is not financial, investment, legal or regulatory advice. Results are illustrations under the stated assumptions, not a valuation of any real trade.</p>
+<div class="cta">
+<h2>Practise it in Cornerstone</h2>
+<p>Snapshot cards and five-question sessions for CFA® and FRM® candidates, free on Android and offline. The full glossary is in the app too, with search.</p>
+<a class="btn btn-solid" href="/cornerstone/">About Cornerstone</a><p style="margin:14px 0 0">Or get a free practice question every day on the <a href="https://whatsapp.com/channel/0029Vb9LcPUFXUudEZ6Hm61m" style="color:inherit;text-decoration:underline">Cornerstone WhatsApp channel</a>.</p></div>
+</div>
+</main>
+<footer>
+  <div class="wrap">
+    <ul class="foot">
+      <li><a href="/">Groundlearn</a></li>
+      <li><a href="/learn/">Guides</a></li>
+      <li><a href="/glossary/">Glossary</a></li>
+      <li><a href="/case-studies/">Case studies</a></li>
+      <li><a href="/ba-ii-plus/">BA II Plus keystrokes</a></li>
+      <li><a href="/exams/">CFA and FRM exam dates</a></li>
+      <li><a href="/tools/">Calculators</a></li>
+      <li><a href="/cornerstone/">Cornerstone</a></li>
+      <li><a href="/otc-learn/">OTC Learn</a></li>
+      <li><a href="https://singhalsachin2003.github.io/CornerStone/PRIVACY.html">Cornerstone privacy</a></li>
+      <li><a href="https://singhalsachin2003.github.io/OTC_Learn/privacy/">OTC Learn privacy</a></li>
+      <li><a href="https://whatsapp.com/channel/0029Vb9LcPUFXUudEZ6Hm61m">Cornerstone on WhatsApp</a></li><li><a href="https://whatsapp.com/channel/0029Vb9Pn6h9hXF2IeUaPU3K">OTC Learn on WhatsApp</a></li><li><a href="mailto:contactgroundlearn@gmail.com">Contact</a></li>
+    </ul>
+    <p>Educational content only. Nothing here is financial advice, an offer to trade, or a recommendation to buy or sell any instrument.</p>
+    <p>CFA® and FRM® are registered trademarks of their respective owners. Groundlearn is not affiliated with CFA Institute or GARP.</p>
+  </div>
+</footer>
+<script src="/tools/tools.js" defer></script>
+</body>
+</html>
