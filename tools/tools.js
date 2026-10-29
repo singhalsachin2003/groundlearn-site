@@ -1,4 +1,4 @@
-/* Groundlearn calculators. No dependencies, no tracking, nothing leaves the page. */
+/* GroundLearn calculators. No dependencies, no tracking, nothing leaves the page. */
 (function () {
   "use strict";
   var $ = function (id) { return document.getElementById(id); };
