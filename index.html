@@ -177,6 +177,26 @@ footer p{margin:0 0 10px;max-width:62em;line-height:1.55}
   .phone{width:172px}
   .btn{width:100%}
 }
+
+/* YouTube band and video cards */
+.ytband{padding:34px 0;border-top:1px solid var(--line);background:var(--surface)}
+.ytb{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 28px}
+.ytb .k{margin:0 0 6px}
+.ytb .h{font:600 22px/1.3 var(--serif);color:var(--ink);margin:0;max-width:34ch}
+.ytb .btns{flex:0 1 auto}
+@media (max-width:640px){.ytb .btns{flex:1 1 100%}}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;margin:6px 0 0}
+.vcard{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface)}
+.vcard .th{position:relative;display:block;aspect-ratio:16/9;background:#0B100D}
+.vcard .th img{width:100%;height:100%;object-fit:cover;display:block}
+.vcard .th span{position:absolute;right:8px;top:8px;padding:2px 7px;border-radius:6px;background:rgba(0,0,0,.78);color:#fff;font:700 12px/1.4 var(--sans)}
+.vcard .bd{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.vcard h3{font:600 18px/1.3 var(--serif);margin:0}
+.vcard h3 a{color:var(--ink);text-decoration:none}
+.vcard h3 a:hover{text-decoration:underline}
+.vcard p{margin:0;font-size:15px;color:var(--body)}
+.vcard .lk{margin-top:auto;padding-top:6px;font-size:14px;font-weight:600}
+.vcard .lk a{color:var(--clay-ink)}
 </style>
 </head>
 <body>
@@ -309,6 +329,17 @@ footer p{margin:0 0 10px;max-width:62em;line-height:1.55}
   </div>
 </section>
 
+<section id="videos" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <p class="k">On YouTube</p>
+      <h2>Latest worked examples.</h2>
+    </div>
+    <div class="vgrid"><article class="vcard"><a class="th" href="https://www.youtube.com/watch?v=DUC5nwItiAw&amp;list=PLI6AfeEbcjus" aria-label="Watch Close-out netting and the Lehman default on YouTube"><img src="/videos/thumbs/DUC5nwItiAw.webp" width="640" height="360" loading="lazy" alt=""><span>2:57</span></a><div class="bd"><h3><a href="https://www.youtube.com/watch?v=DUC5nwItiAw&amp;list=PLI6AfeEbcjus">Close-out netting and the Lehman default</a></h3><p>How close-out netting works under an ISDA Master Agreement, worked through one fund&#x27;s three swaps with Lehman in 2008.</p><p class="lk"><a href="https://www.youtube.com/watch?v=DUC5nwItiAw&amp;list=PLI6AfeEbcjus">Watch on YouTube</a> · <a href="/case-studies/lehman-brothers-2008/">Read the Lehman case study</a></p></div></article><article class="vcard"><a class="th" href="https://www.youtube.com/watch?v=xMFrbwqLFlI&amp;list=PLFXcMBy-iiko" aria-label="Watch BA II Plus keystrokes for CFA and FRM on YouTube"><img src="/videos/thumbs/xMFrbwqLFlI.webp" width="640" height="360" loading="lazy" alt=""><span>3:49</span></a><div class="bd"><h3><a href="https://www.youtube.com/watch?v=xMFrbwqLFlI&amp;list=PLFXcMBy-iiko">BA II Plus keystrokes for CFA and FRM</a></h3><p>Setup, time value of money, NPV and IRR, and bond prices on the exam calculator, key by key.</p><p class="lk"><a href="https://www.youtube.com/watch?v=xMFrbwqLFlI&amp;list=PLFXcMBy-iiko">Watch on YouTube</a> · <a href="/ba-ii-plus/">Open the keystroke pages</a></p></div></article><article class="vcard"><a class="th" href="https://www.youtube.com/watch?v=QOmq4OYWva8&amp;list=PLI6AfeEbcjus" aria-label="Watch Funding valuation adjustment (FVA), worked example on YouTube"><img src="/videos/thumbs/QOmq4OYWva8.webp" width="640" height="360" loading="lazy" alt=""><span>2:58</span></a><div class="bd"><h3><a href="https://www.youtube.com/watch?v=QOmq4OYWva8&amp;list=PLI6AfeEbcjus">Funding valuation adjustment (FVA), worked example</a></h3><p>What it costs a bank to fund an uncollateralised swap, and how FVA is calculated.</p><p class="lk"><a href="https://www.youtube.com/watch?v=QOmq4OYWva8&amp;list=PLI6AfeEbcjus">Watch on YouTube</a> · <a href="/learn/funding-valuation-adjustment/">Read the FVA guide</a></p></div></article></div>
+    <p class="btns" style="margin-top:22px"><a class="btn btn-solid" href="https://www.youtube.com/@GroundLearn?sub_confirmation=1">Subscribe on YouTube</a><a class="btn btn-line" href="/videos/">See all videos</a></p>
+  </div>
+</section>
+
 <section id="follow" style="padding-top:0">
   <div class="wrap">
     <div class="head">
@@ -320,12 +351,12 @@ footer p{margin:0 0 10px;max-width:62em;line-height:1.55}
         <li><a href="https://whatsapp.com/channel/0029Vb9LcPUFXUudEZ6Hm61m">WhatsApp</a></li>
         <li><a href="https://x.com/getcornerstone">X</a></li>
         <li><a href="https://www.instagram.com/getcornerstone/">Instagram</a></li>
-        <li><a href="https://www.youtube.com/@getcornerstone">YouTube</a></li></ul></div>
+        <li><a href="https://www.youtube.com/@GroundLearn">YouTube</a></li></ul></div>
       <div class="chan"><h3>OTC Learn</h3><ul>
         <li><a href="https://whatsapp.com/channel/0029Vb9Pn6h9hXF2IeUaPU3K">WhatsApp</a></li>
         <li><a href="https://x.com/otclearn">X</a></li>
         <li><a href="https://www.instagram.com/otclearn/">Instagram</a></li>
-        <li><a href="https://www.youtube.com/@otclearn">YouTube</a></li></ul></div>
+        <li><a href="https://www.youtube.com/@GroundLearn">YouTube</a></li></ul></div>
     </div>
   </div>
 </section>
@@ -346,6 +377,12 @@ footer p{margin:0 0 10px;max-width:62em;line-height:1.55}
 </section>
 </main>
 
+<section class="ytband" aria-label="Groundlearn on YouTube">
+  <div class="wrap"><div class="ytb">
+    <div><p class="k">Groundlearn on YouTube</p><p class="h">Short worked examples for CFA®, FRM® and OTC derivatives, with the numbers on screen.</p></div>
+    <p class="btns"><a class="btn btn-solid" href="https://www.youtube.com/@GroundLearn?sub_confirmation=1">Subscribe on YouTube</a><a class="btn btn-line" href="/videos/">See all videos</a></p>
+  </div></div>
+</section>
 <footer>
   <div class="wrap">
     <ul class="foot">
@@ -355,6 +392,8 @@ footer p{margin:0 0 10px;max-width:62em;line-height:1.55}
       <li><a href="/ba-ii-plus/">BA II Plus keystrokes</a></li>
       <li><a href="/exams/">CFA and FRM exam dates</a></li>
       <li><a href="/tools/">Calculators</a></li>
+      <li><a href="/videos/">Videos</a></li>
+      <li><a href="https://www.youtube.com/@GroundLearn?sub_confirmation=1">Groundlearn on YouTube</a></li>
       <li><a href="/cornerstone/">Cornerstone</a></li>
       <li><a href="/otc-learn/">OTC Learn</a></li>
       <li><a href="https://singhalsachin2003.github.io/CornerStone/PRIVACY.html">Cornerstone privacy</a></li>
