@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024"><defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fdcff"/><stop offset="1" stop-color="#22a8e8"/></linearGradient></defs>
+<rect width="1024" height="1024" fill="url(#sky)"/>
+<circle cx="250" cy="250" r="80" fill="#fff3b0" opacity=".9"/><g transform="translate(512 512) scale(.92) translate(-512 -470)">
+  <ellipse cx="512" cy="742" rx="360" ry="120" fill="#1e8fd0" opacity=".35"/>
+  <ellipse cx="512" cy="716" rx="340" ry="122" fill="#f7e49a"/>
+  <ellipse cx="512" cy="694" rx="300" ry="100" fill="#7ed957"/>
+  <ellipse cx="470" cy="676" rx="190" ry="52" fill="#9be86f"/>
+  <!-- palm -->
+  <path d="M760 690 C752 610 742 560 716 500" stroke="#8a5a2b" stroke-width="26" fill="none" stroke-linecap="round"/>
+  <path d="M716 500 C660 470 610 488 580 520 C640 505 680 510 716 500Z" fill="#2fb55a"/>
+  <path d="M716 500 C700 440 660 410 610 405 C660 440 690 470 716 500Z" fill="#26a24f"/>
+  <path d="M716 500 C750 440 800 420 850 430 C800 450 760 470 716 500Z" fill="#2fb55a"/>
+  <path d="M716 500 C780 490 830 520 850 565 C800 530 760 515 716 500Z" fill="#26a24f"/>
+  <!-- flask -->
+  <path d="M452 250 H572 V430 L700 640 Q712 668 682 672 H342 Q312 668 324 640 L452 430 Z" fill="#e9fbff" stroke="#1d2b55" stroke-width="30" stroke-linejoin="round"/>
+  <path d="M395 545 H629 L690 645 Q698 660 680 660 H344 Q326 660 334 645 Z" fill="#ff5fa2"/>
+  <path d="M395 545 H629" stroke="#ff8cc0" stroke-width="14"/>
+  <rect x="430" y="232" width="164" height="40" rx="20" fill="#1d2b55"/>
+  <circle cx="470" cy="610" r="18" fill="#ffd0e5"/>
+  <circle cx="560" cy="590" r="12" fill="#ffd0e5"/>
+  <circle cx="528" cy="160" r="30" fill="#ffd34d" stroke="#1d2b55" stroke-width="14"/>
+  <circle cx="610" cy="110" r="20" fill="#7ee0ff" stroke="#1d2b55" stroke-width="12"/>
+  <circle cx="455" cy="95" r="16" fill="#ff5fa2" stroke="#1d2b55" stroke-width="10"/>
+</g></svg>
