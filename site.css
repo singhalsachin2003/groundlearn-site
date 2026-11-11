@@ -51,7 +51,7 @@ footer{padding:44px 0 56px;color:var(--muted);font-size:15px}
 .foot a:hover{color:var(--clay-ink)}
 footer p{margin:0 0 10px;max-width:62em;line-height:1.55}
 
-@media (max-width:640px){.nav a:not(.keep){display:none}.btn{width:100%}}
+@media (max-width:640px){.nav{gap:14px}.nav a:not(.keep){display:none}.btn{width:100%}}
 
 .page{padding:56px 0 24px}
 .page .wrap{max-width:860px}
