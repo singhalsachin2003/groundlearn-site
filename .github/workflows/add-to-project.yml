@@ -1,0 +1,21 @@
+name: Add issues to GroundLearn project
+
+on:
+  issues:
+    types: [opened, reopened, transferred]
+
+jobs:
+  add-to-project:
+    runs-on: ubuntu-latest
+    env:
+      PAT: ${{ secrets.ADD_TO_PROJECT_PAT }}
+    steps:
+      - name: Add issue to the project board
+        if: ${{ env.PAT != '' }}
+        uses: actions/add-to-project@v1.0.2
+        with:
+          project-url: https://github.com/users/singhalsachin2003/projects/1
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+      - name: Note missing secret
+        if: ${{ env.PAT == '' }}
+        run: echo "::warning::ADD_TO_PROJECT_PAT secret is not set; issue was not added to the board."
