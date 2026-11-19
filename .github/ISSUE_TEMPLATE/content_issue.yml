@@ -1,0 +1,39 @@
+name: Content issue
+description: Wrong, unclear or missing content in GroundLearn website (question, answer, explanation, text, translation)
+title: "[Content]: "
+labels: ["content", "needs-triage"]
+body:
+  - type: input
+    id: location
+    attributes:
+      label: Where is it?
+      description: Module / topic / screen / question number
+      placeholder: "e.g. Page URL, section"
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Type of problem
+      options:
+        - Factual error
+        - Typo or grammar
+        - Unclear explanation
+        - Missing content
+        - Translation or localisation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: What it says now
+    validations:
+      required: true
+  - type: textarea
+    id: proposed
+    attributes:
+      label: What it should say
+      description: Include a source or reference if you have one.
+    validations:
+      required: true

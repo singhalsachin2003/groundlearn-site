@@ -1,0 +1,24 @@
+name: Task
+description: Internal work item (release step, store listing, infra, chore)
+title: "[Task]: "
+labels: ["task", "needs-triage"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: Definition of done
+      value: |
+        - [ ] 
+    validations:
+      required: true
+  - type: input
+    id: due
+    attributes:
+      label: Target date
+      placeholder: YYYY-MM-DD

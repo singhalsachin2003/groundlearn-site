@@ -1,0 +1,77 @@
+name: Bug report
+description: Something in GroundLearn website is broken or behaving wrongly
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for logging this. The more detail below, the faster it can be fixed.
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: A clear, short description of the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open the app
+        2. Go to ...
+        3. Tap ...
+        4. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - "Critical - crash, data loss or blocks release"
+        - "High - major feature broken, no workaround"
+        - "Medium - broken but a workaround exists"
+        - "Low - cosmetic or minor"
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      multiple: true
+      options:
+        - Android
+        - iOS
+        - Web
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: App version / build
+      placeholder: "e.g. 1.0.3 (build 12)"
+  - type: input
+    id: device
+    attributes:
+      label: Device and OS version
+      placeholder: "e.g. Pixel 7, Android 15"
+  - type: textarea
+    id: logs
+    attributes:
+      label: Screenshots, screen recording or logs
+      description: Drag and drop files here, or paste log output.
+      render: shell

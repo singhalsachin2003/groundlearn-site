@@ -1,0 +1,14 @@
+[
+  {"name":"bug","color":"d73a4a","description":"Something is broken"},
+  {"name":"content","color":"0e8a16","description":"Learning content issue"},
+  {"name":"enhancement","color":"a2eeef","description":"New feature or improvement"},
+  {"name":"task","color":"c5def5","description":"Internal work item"},
+  {"name":"needs-triage","color":"fbca04","description":"Not yet reviewed"},
+  {"name":"severity: critical","color":"b60205","description":"Crash, data loss or release blocker"},
+  {"name":"severity: high","color":"d93f0b","description":"Major feature broken"},
+  {"name":"severity: medium","color":"fbca04","description":"Workaround exists"},
+  {"name":"severity: low","color":"cfd3d7","description":"Minor or cosmetic"},
+  {"name":"android","color":"3ddc84","description":"Android only"},
+  {"name":"ios","color":"999999","description":"iOS only"},
+  {"name":"blocked","color":"000000","description":"Waiting on something external"}
+]
