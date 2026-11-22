@@ -84,6 +84,9 @@ button:focus-visible,input:focus-visible{outline:3px solid #6f9bff;outline-offse
 .dock > *{min-width:0}
 .readout{font-size:14px;line-height:1.4;min-height:1.4em}
 .readout b{font-weight:700}
+.cdiag{margin:6px 0;padding:6px 8px 4px;background:#fffdf6;border:1px solid rgba(18,21,40,.14);border-radius:12px;color:#121528}
+.cdiag figcaption{font:700 11px/1.2 inherit;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.cdiag svg{display:block;width:100%;height:auto;max-height:150px}
 .tool-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:flex-end}
 .btn{font:600 15px/1 var(--f-body);background:var(--card);border:2px solid var(--ink);border-radius:12px;box-shadow:0 3px 0 var(--ink);padding:10px 14px;display:inline-flex;gap:8px;align-items:center}
 .btn:active:not(:disabled){transform:translateY(2px);box-shadow:0 1px 0 var(--ink)}
@@ -248,8 +251,10 @@ sub{font-size:.7em}
   <div class="dock card" id="dock-circuit" hidden>
     <div class="readout" id="cRead"></div>
     <div class="readout" id="cHint" style="color:var(--muted)"></div>
+    <!-- Curio app: circuit diagram with standard symbols, drawn from the board (games.circuit.diagram) -->
+    <figure class="cdiag" id="cDiag" hidden><figcaption>Circuit diagram</figcaption><div id="cSvg"></div></figure>
     <div class="rg-row one" id="cTray" role="group" aria-label="Parts tray"></div>
-    <div class="tool-row"><button class="btn" id="cReset">Start again</button></div>
+    <div class="tool-row"><button class="btn" id="cDiagBtn" aria-pressed="false">📐 Diagram</button><button class="btn" id="cReset">Start again</button></div>
   </div>
 
   <div class="dock card" id="dock-mach" hidden>
@@ -2071,6 +2076,7 @@ games.circuit = (function () {
     sol.bulbs.forEach(b => parts.push(\`Bulb \${labelFor(b.k)}: <span class="mono">\${fmt(b.I, 2)} A · \${fmt(b.V, 2)} V</span>\`));
     parts.push(\`Current from the cell: <span class="mono">\${fmt(sol.cellI, 2)} A</span>\`);
     $('cRead').innerHTML = parts.join(' · ');
+    if (!$('cDiag').hidden) diagram();
     const hint = pick ? (pick === 'take' ? 'Tap a part on the board to take it out.' : \`Tap a glowing gap to place the \${PART[pick].name.toLowerCase()}.\`) : 'Choose a part, then tap a gap. Tap a placed switch to flip it, or a placed cell to turn it round.';
     $('cHint').textContent = hint;
   }
@@ -2116,6 +2122,38 @@ games.circuit = (function () {
   }
   function mission() { return { meta: \`Circuit \${li + 1} of \${CIRC.length}\`, text: L.text, hint: L.hint, stars: P.circDone[li] ? '<span style="color:var(--mint);-webkit-text-stroke:0">Done ✓</span>' : '', nav: true, prevOk: li > 0, nextOk: li < CIRC.length - 1 && !!P.circDone[li] }; }
   $('cReset').onclick = () => { sfx.click(); setLevel(li); };
+
+  // Curio app: the same circuit as a diagram, with the symbols used in science books.
+  // Bulbs fill yellow when lit; an empty gap is dashed. Redrawn whenever the board changes.
+  function diagram() {
+    const ns = L.nodes, xs = ns.map(n => n[0]), zs = ns.map(n => n[1]);
+    const minX = Math.min(...xs), maxX = Math.max(...xs), minZ = Math.min(...zs), maxZ = Math.max(...zs);
+    const U = 64, pad = 26, W = (maxX - minX) * U + pad * 2, H = Math.max(1, maxZ - minZ) * U + pad * 2;
+    const at = i => [pad + (ns[i][0] - minX) * U, pad + (ns[i][1] - minZ) * U];
+    const lit = k => { const b = sol && sol.bulbs.find(x => x.k === k); return b && b.rel >= 0.5; };
+    const col = sol && sol.short ? '#e2553f' : '#121528';
+    let out = '', labels = '';
+    L.edges.forEach((e, k) => {
+      const [ax, ay] = at(e.a), [bx, by] = at(e.b), len = Math.hypot(bx - ax, by - ay), ang = Math.atan2(by - ay, bx - ax) * 180 / Math.PI;
+      const c = comps[k], t = c ? c.t : null, p = t ? PART[t] : null, h = len / 2;
+      const line = (x1, x2) => \`<line x1="\${x1}" y1="0" x2="\${x2}" y2="0"/>\`;
+      let sym = '', gap = 14;
+      if (!t) { gap = 12; sym = \`<line x1="-12" y1="0" x2="12" y2="0" stroke-dasharray="3 4" opacity=".55"/><text x="0" y="-6" font-size="12" text-anchor="middle" stroke="none" fill="#e2553f">?</text>\`; }
+      else if (p.cell) { gap = 5; const f = c.flip ? -1 : 1; sym = \`<line x1="\${-4 * f}" y1="-13" x2="\${-4 * f}" y2="13"/><line x1="\${4 * f}" y1="-7" x2="\${4 * f}" y2="7" stroke-width="4"/>\`; }
+      else if (t === 'bulb') { gap = 11; sym = \`<circle r="11" fill="\${lit(k) ? '#ffd36a' : '#fffdf6'}"/><line x1="-7.8" y1="-7.8" x2="7.8" y2="7.8"/><line x1="-7.8" y1="7.8" x2="7.8" y2="-7.8"/>\`; }
+      else if (p.sw) { gap = 12; sym = c.on ? \`<circle cx="-12" r="2.5" fill="\${col}"/><circle cx="12" r="2.5" fill="\${col}"/><line x1="-12" y1="0" x2="12" y2="0"/>\` : \`<circle cx="-12" r="2.5" fill="\${col}"/><circle cx="12" r="2.5" fill="\${col}"/><line x1="-12" y1="0" x2="9" y2="-12"/>\`; }
+      else if (p.R !== undefined && p.R >= 1 && t !== 'bulb') { gap = 15; sym = \`<rect x="-15" y="-6" width="30" height="12" fill="#fffdf6"/>\`; }
+      else if (p.R === Infinity) { gap = 13; sym = \`<rect x="-13" y="-6" width="26" height="12" fill="#f1e3d0" stroke-dasharray="2 2"/>\`; } // an insulator in the gap: no path
+      else gap = 0; // wire, coin, paper clip: a plain conductor
+      out += \`<g transform="translate(\${(ax + bx) / 2} \${(ay + by) / 2}) rotate(\${ang})">\${gap ? line(-h, -gap) + line(gap, h) : line(-h, h)}\${sym}</g>\`;
+      if (t === 'bulb') { const nx = -(by - ay) / len, ny = (bx - ax) / len, side = ((ax + bx) / 2 + nx * 22 > W - 8 || (ay + by) / 2 + ny * 22 > H - 4) ? -1 : 1; labels += \`<text x="\${(ax + bx) / 2 + nx * 22 * side}" y="\${(ay + by) / 2 + ny * 22 * side + 4}" font-size="12" font-weight="700" text-anchor="middle" fill="\${col}">\${labelFor(k)}</text>\`; }
+    });
+    const dots = ns.map((_, i) => { const [x, y] = at(i); return \`<circle cx="\${x}" cy="\${y}" r="2.2" fill="\${col}"/>\`; }).join('');
+    $('cSvg').innerHTML = \`<svg viewBox="0 0 \${W} \${H}" role="img" aria-label="Circuit diagram of this board" fill="none" stroke="\${col}" stroke-width="2" stroke-linecap="round">\${out}\${dots}\${labels}</svg>\`;
+  }
+  function showDiagram(on) { $('cDiag').hidden = !on; $('cDiagBtn').setAttribute('aria-pressed', String(on)); $('cDiagBtn').textContent = on ? '🔦 Picture only' : '📐 Diagram'; if (on) diagram(); }
+  $('cDiagBtn').onclick = () => { sfx.click(); P.circDiag = $('cDiag').hidden; persist(); showDiagram(P.circDiag); };
+  showDiagram(!!P.circDiag);
   // Curio app: Show me places the parts that complete this circuit.
   async function show() {
     if (solved) return; setLevel(li); await wait(400);
