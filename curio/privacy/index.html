@@ -47,8 +47,9 @@
 <ul class="tick">
 <li>No accounts and no sign-in. The only thing we may ask for is an optional email address from a grown-up when they buy Ad-free; we never ask a child for any personal information.</li>
 <li>Player names, buddies, coins, hearts and progress are saved only on the phone. They are never sent to us.</li>
-<li>Ads come from Google AdMob. Every ad request is marked as directed to children, is non-personalised and is limited to G-rated ads. The app does not collect the Android advertising ID.</li>
-<li>The optional Ad-free upgrade is paid through Google Play. We never see card or payment details. After buying, a grown-up can choose to share an email address; it is optional.</li>
+<li>Purchases go through Google Play on Android and the App Store on iPhone and iPad. We never see card or payment details. After buying, a grown-up can choose to share an email address; it is optional.</li>
+<li>On Android, ads come from Google AdMob. Every ad request is marked as directed to children, is non-personalised and is limited to G-rated ads. The app does not collect the Android advertising ID.</li>
+<li>On iPhone and iPad there is no Google AdMob. The app does not use Apple's advertising identifier (IDFA) and never shows Apple's tracking prompt.</li>
 <li>Purchases, settings and links out of the app sit behind a grown-up check.</li>
 <li>The free web version at <a href="https://groundlearn.com/play/curio-island/">groundlearn.com/play/curio-island</a> works the same way: progress stays in that browser, and any ads are child-directed and non-personalised.</li>
 </ul>
@@ -60,13 +61,13 @@
 </section>
 
 <section class="blk">
-<h2>Advertising (Google AdMob)</h2>
+<h2>Advertising on Android (Google AdMob)</h2>
 <p>The free version shows ads from Google AdMob, never in the first three minutes of play and only at natural breaks. Children can also choose to watch an ad to get a heart back; a parent can turn this off in Parent Corner.</p>
 <p>We mark every ad request for Google's child age treatment (child-directed treatment under COPPA, and treatment for users under the age of consent in Europe), ask for non-personalised ads only, and cap ad content at the G rating. The Android advertising ID permission is removed from the app, so it is not collected. To serve and measure ads and prevent fraud, Google's ad software still receives some technical information from the device: the IP address (which can suggest a rough location), basic device and app details, an app-specific identifier (the app set ID), how ads are viewed and tapped, and diagnostic data. Google handles this under its own policies: <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from apps that use its services</a>.</p>
 </section>
 
 <section class="blk">
-<h2>The Ad-free upgrade (Google Play and RevenueCat)</h2>
+<h2>Purchases on Android (Google Play and RevenueCat)</h2>
 <p>Ad-free is a one-time purchase made through Google Play billing. Google Play processes the payment. We use RevenueCat to check that the purchase is valid; RevenueCat receives a random identifier created by the app and the purchase record (product, date and price), but no name, email or payment details. GroundLearn can see the purchase records but cannot link them to a person. See <a href="https://www.revenuecat.com/privacy">RevenueCat's privacy policy</a>.</p>
 <p><strong>Parent email (optional).</strong> When a grown-up buys Ad-free, behind the grown-up check, the app asks whether they would like to share an email address. It is optional and Ad-free works the same without it. We use it only to send that grown-up news about Curio Island and GroundLearn. It is never asked of a child, never shown in the game, never used for advertising and never sold or shared with anyone else. It is stored with our database provider, Supabase, and kept until you ask us to delete it.</p>
 </section>
@@ -81,9 +82,17 @@
 </ul>
 </section>
 
+<section class="blk" id="ios">
+<h2>On iPhone and iPad</h2>
+<p>The iPhone and iPad app works like the Android app: no accounts or sign-in, every player's progress stays on the device, and purchases, settings and links sit behind a grown-up check in Parent Corner. It is listed in Apple's Kids Category.</p>
+<p><strong>No tracking.</strong> The app contains no Google AdMob and no analytics or tracking software. It does not use Apple's advertising identifier (IDFA) and never asks to track.</p>
+<p><strong>Free version, free trial and the whole-island unlock.</strong> The first two levels of every lab are free. A grown-up can start a free 7-day trial and can unlock the whole island with a one-time purchase. Both go through Apple, which processes any payment. RevenueCat, our purchase-validation service, receives a random identifier created by the app and the purchase record (product, date and price), including the date the free trial was taken, which the app uses only to work out when the trial ends. RevenueCat receives no name, email or payment details. See <a href="https://www.revenuecat.com/privacy">RevenueCat's privacy policy</a>.</p>
+<p><strong>Parent email (optional).</strong> As on Android, after the unlock purchase a grown-up may choose to share an email address for news about Curio Island and GroundLearn. It is never asked of a child and is never used for advertising, sold or shared.</p>
+</section>
+
 <section class="blk">
 <h2>Children's privacy</h2>
-<p>Curio Island is designed for children and follows Google Play's Families policy, the US Children's Online Privacy Protection Act (COPPA) and the children's provisions of the GDPR and UK GDPR. We do not knowingly collect personal information from children. The optional parent email is asked of grown-ups only, behind the grown-up check. If you believe a child has sent us personal information, write to us and we will delete it.</p>
+<p>Curio Island is designed for children and follows Google Play's Families policy, Apple's rules for the Kids Category, the US Children's Online Privacy Protection Act (COPPA) and the children's provisions of the GDPR and UK GDPR. We do not knowingly collect personal information from children. The optional parent email is asked of grown-ups only, behind the grown-up check. If you believe a child has sent us personal information, write to us and we will delete it.</p>
 </section>
 
 <section class="blk" id="web">
@@ -105,7 +114,9 @@
 <ul class="tick">
 <li><strong>One player:</strong> open Grown-ups (Parent Corner), answer the grown-up question, and tap Remove next to the player. Their name, buddy, progress, coins and hearts are deleted at once.</li>
 <li><strong>Everything in a web browser:</strong> clear the site data for groundlearn.com in your browser settings (or use the browser's "Clear browsing data"). All players, progress and the offline copy of the game are deleted from that browser.</li>
-<li><strong>Everything on the phone:</strong> uninstall Curio Island, or clear its storage in Android Settings, Apps, Curio Island, Storage. All players, progress and settings are deleted.</li>
+<li><strong>Everything on an Android phone:</strong> uninstall Curio Island, or clear its storage in Android Settings, Apps, Curio Island, Storage. All players, progress and settings are deleted.</li>
+<li><strong>Everything on an iPhone or iPad:</strong> delete the app. That removes everything Curio Island kept on the device.</li>
+<li><strong>The purchase record on iPhone and iPad:</strong> email <a href="mailto:support@groundlearn.com?subject=Curio%20Island%20data%20deletion">support@groundlearn.com</a> with the subject "Curio Island data deletion" and the Order ID from Apple's receipt email. We delete the RevenueCat record within 30 days and confirm by email. This does not cancel the purchase, and it can be restored later from Parent Corner.</li>
 <li><strong>Your parent email</strong>, if you shared one: email <a href="mailto:support@groundlearn.com?subject=Curio%20Island%20data%20deletion">support@groundlearn.com</a> from that address with the subject "Curio Island data deletion". We delete it within 30 days and confirm by email.</li>
 <li><strong>The Ad-free purchase record</strong> kept by RevenueCat (a random app identifier, the product, date and price): email <a href="mailto:support@groundlearn.com?subject=Curio%20Island%20data%20deletion">support@groundlearn.com</a> with the subject "Curio Island data deletion" and the Google Play order number (it starts with GPA.). We delete the record within 30 days and confirm by email. Google Play keeps its own order record under Google's policies; deleting ours does not cancel the purchase, and you can restore Ad-free later from Parent Corner.</li>
 </ul>
