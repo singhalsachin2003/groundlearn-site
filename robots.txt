@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://groundlearn.com/sitemap.xml
+Sitemap: https://groundlearn.com/play/curio-island/sitemap.xml
